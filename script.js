@@ -1,10 +1,20 @@
 // Configura tu WhatsApp aquí (sin +, solo número con indicativo país)
-const WA_NUMBER = '573001112233';
+const WHATSAPP_NUMBER = '573001112233';
 
 function openWA() {
-    const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Hola Duoclick, quiero una web profesional')}`;
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hola Duoclick, quiero una web profesional')}`;
     window.open(url, '_blank');
 }
+
+function getWhatsAppLink(message = '') {
+    const base = `https://wa.me/${WHATSAPP_NUMBER}`;
+    return message ? `${base}?text=${encodeURIComponent(message)}` : base;
+}
+document.querySelectorAll('[data-whatsapp]').forEach(el => {
+    const msg = el.dataset.whatsapp || '';
+    el.setAttribute('href', getWhatsAppLink(msg));
+});
+
 
 function sendWhatsApp(e) {
     e.preventDefault();
