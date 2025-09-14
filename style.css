@@ -31,6 +31,19 @@ body {
         var(--bg-0);
 }
 
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(600px circle at var(--x, 50%) var(--y, 50%), rgba(225, 29, 72, .15), transparent 80%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+
 a {
     color: inherit;
     text-decoration: none
@@ -483,8 +496,10 @@ footer {
     display: inline-flex;
     align-items: center;
     gap: .6rem;
-    padding: .6rem .9rem; /* Un poco más pequeño */
-    font-size: 0.9rem; /* Fuente más pequeña */
+    padding: .6rem .9rem;
+    /* Un poco más pequeño */
+    font-size: 0.9rem;
+    /* Fuente más pequeña */
     border-radius: 999px;
     background: #22c55e;
     color: #04130a;
@@ -563,63 +578,106 @@ footer {
     background: linear-gradient(180deg, #1a1a1a, #111);
 }
 
-/* ====== SCROLL TEXT SEQUENCE ====== */
-.scroll-text {
-    height: 500vh;
-    /* espacio para hacer scroll */
+/* ====== SCROLL CARDS ====== */
+.scroll-container {
+    /* Le damos un alto mayor al de la pantalla para generar el recorrido de scroll.
+     Puedes ajustar este valor para cambiar la "velocidad" del scroll horizontal.
+     Más alto = más lento. */
     position: relative;
-    background: #0b0f1a;
+    /* Necesario para el sticky child */
 }
 
-.scroll-words {
+.scroll-cards {
+    height: calc(var(--vh, 1vh) * 100);
+    /* --- CAMBIOS CLAVE --- */
     position: sticky;
+    /* Haz que la sección sea pegajosa */
     top: 0;
-    height: 100vh;
-    /* ocupa toda la pantalla */
+    /* Pégala en la parte superior */
+    /* --- FIN DE CAMBIOS --- */
+    overflow: hidden;
+}
+
+.cards-track {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: clamp(2rem, 3vw, 2rem);
-    font-weight: 800;
-    text-align: center;
-    line-height: 1.2;
+    height: 100%;
+    width: max-content;
+    will-change: transform;
 }
 
-.scroll-words .word {
-    opacity: 0;
-    position: absolute;
-    transition: opacity .6s ease;
+.scroll-cards .card {
+    flex: 0 0 80vw;
+    margin: 0 2vw;
+    background: var(--card);
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--shadow);
     color: var(--text);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform .3s ease;
 }
 
-.scroll-words .word.active {
-    opacity: 1;
+.scroll-cards .card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent);
+}
+
+.scroll-cards h3 {
+    margin: 0 0 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
     color: var(--accent);
 }
 
-.scroll-words .word:nth-child(1).active {
-    color: #e11d48;
+.scroll-cards p {
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.5;
 }
 
-/* rojo */
-.scroll-words .word:nth-child(2).active {
-    color: #22c55e;
+.cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.15s ease-out;
+    z-index: 2000;
 }
 
-/* verde */
-.scroll-words .word:nth-child(3).active {
-    color: #3b82f6;
+.cursor-inner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 2001;
 }
 
-/* azul */
-.scroll-words .word:nth-child(4).active {
-    color: #f59e0b;
+.mask-diagonal {
+    clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
+    transform: translateY(30px);
+    opacity: 0;
+    transition: clip-path 1s ease, transform 1s ease, opacity 1s ease;
 }
 
-/* amarillo */
-.scroll-words .word:nth-child(5).active {
-    color: #a855f7;
+.mask-diagonal.show {
+    clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
+    transform: translateY(0);
+    opacity: 1;
 }
+
 
 @media(max-width:768px) {
     .menu {

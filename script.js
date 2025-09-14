@@ -15,11 +15,16 @@ function sendWhatsApp(e) {
     const message = document.getElementById('message').value.trim();
 
     const text = `Hola Duoclick 👋%0A\nSoy ${name}.%0AEmail: ${email}%0AWhatsApp: ${phone || 'N/A'}%0AServicio: ${service}%0A\nMensaje:%0A${message || '—'}`;
-    window.open(`httpshttps://wa.me/${WA_NUMBER}?text=${text}`, '_blank');
+    window.open(`https://wa.me/${WA_NUMBER}?text=${text}`, '_blank');
     return false;
 }
 
-function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
 
 // Año dinámico
 document.getElementById('year').textContent = new Date().getFullYear();
@@ -37,7 +42,9 @@ const io = new IntersectionObserver((entries) => {
             io.unobserve(e.target);
         }
     });
-}, { threshold: .12 });
+}, {
+    threshold: .12
+});
 
 // Observar reveals y masks
 document.querySelectorAll('.reveal, .mask, .line').forEach((el, i) => {
@@ -49,26 +56,52 @@ document.querySelectorAll('.reveal, .mask, .line').forEach((el, i) => {
 const nav = document.querySelector('.nav');
 document.querySelector('.menu-toggle').addEventListener('click', () => nav.classList.toggle('open'));
 
-// ====== SCROLL TEXT SEQUENCE ======
+// Cursor efecto (solo para PC, podría ser buena idea desactivarlo en móvil)
+if (!('ontouchstart' in window)) {
+    const cursor = document.createElement("div");
+    cursor.classList.add("cursor");
+    const cursorInner = document.createElement("div");
+    cursorInner.classList.add("cursor-inner");
+    document.body.appendChild(cursor);
+    document.body.appendChild(cursorInner);
+
+    document.addEventListener("mousemove", e => {
+        cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+        cursorInner.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    });
+
+    document.addEventListener("mousemove", e => {
+        document.body.style.setProperty("--x", e.clientX + "px");
+        document.body.style.setProperty("--y", e.clientY + "px");
+    });
+}
+
+
+// ====== SCROLL CARDS ======
 (function () {
-    const section = document.querySelector('.scroll-text');
-    const words = document.querySelectorAll('.scroll-words .word');
-    if (!section || !words.length) return;
+    const container = document.querySelector('.scroll-container');
+    const track = document.querySelector('.cards-track');
+    const viewport = document.querySelector('.scroll-cards');
+    if (!container || !track || !viewport) return;
 
-    const totalWords = words.length;
-
-    function updateWords() {
-        const rect = section.getBoundingClientRect();
-        const scrollY = window.innerHeight - rect.top;
-        const progress = Math.min(1, Math.max(0, scrollY / rect.height));
-
-        // índice de palabra según progreso
-        const index = Math.min(totalWords - 1, Math.floor(progress * totalWords));
-
-        words.forEach((w, i) => w.classList.toggle('active', i === index));
+    function setHeight() {
+        const viewportH = window.innerHeight;
+        const extraScroll = track.scrollWidth - window.innerWidth;
+        container.style.height = viewportH + extraScroll + 'px';
     }
 
-    window.addEventListener('scroll', updateWords, { passive: true });
-    window.addEventListener('resize', updateWords);
-    updateWords();
+    function onScroll() {
+        const rect = container.getBoundingClientRect();
+        const viewportH = window.innerHeight;
+        const maxScroll = container.offsetHeight - viewportH;
+        const progress = Math.min(Math.max(-rect.top / maxScroll, 0), 1);
+        const moveX = (track.scrollWidth - window.innerWidth) * progress;
+        track.style.transform = `translateX(-${moveX}px)`;
+    }
+
+    window.addEventListener('resize', setHeight);
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    setHeight();
+    onScroll();
 })();
