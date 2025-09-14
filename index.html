@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0f1a" />
+  <title>Duoclick — Soluciones a un click</title>
+  <meta name="description" content="Páginas web profesionales, automatización y desarrollo a medida. Duoclick: Soluciones a un click." />
+
+  <!-- Fuente moderna -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="container nav-wrap">
+      <a href="#" class="brand" aria-label="Inicio Duoclick">
+        <svg viewBox="0 0 64 64" aria-hidden="true" role="img">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1">
+              <stop offset="0%" stop-color="#e11d48" />
+              <stop offset="100%" stop-color="#ef4444" />
+            </linearGradient>
+          </defs>
+          <circle cx="32" cy="32" r="31" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.12)" />
+          <path d="M16 40c0 0 0-16 0-16 0-4 3-8 8-8h6c11 0 18 8 18 16s-7 16-18 16h-6c-5 0-8-4-8-8z"
+            fill="#111" stroke="#e5e7eb" stroke-width="2" />
+          <path d="M18 24v16c0 3 2 6 6 6h6c8 0 14-6 14-14s-6-14-14-14h-6c-4 0-6 3-6 6z" fill="#0b0f1a" />
+          <path d="M44 18 L44 34 L50 30 L54 40 L57 39 L53 29 L60 28 Z" fill="url(#g)" />
+        </svg>
+        <span class="name">Duoclick</span>
+      </a>
+
+      <!-- Botón menú móvil -->
+      <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+
+      <div class="menu">
+        <a href="#servicios">Servicios</a>
+        <a href="#portafolio">Portafolio</a>
+        <a href="#precios">Precios</a>
+        <a href="#contacto" class="btn btn-primary">Contáctanos</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero container">
+    <div class="grid">
+      <div>
+        <h1 class="headline reveal">
+          <span class="line">Creamos <span class="accent">páginas web</span></span>
+          <span class="line">y software <span class="accent">a tu medida</span>.</span>
+        </h1>
+        <p class="sub reveal">Sitios modernos, rápidos y listos para convertir. Integración con WhatsApp, SEO técnico y despliegue en la nube. <strong>Todo en días, no en meses.</strong></p>
+        <div class="actions reveal">
+          <a class="btn btn-cta" href="#contacto">Quiero mi web</a>
+          <a class="btn" href="#servicios">Ver servicios</a>
+        </div>
+        <div class="meta reveal">
+          <span>⚡ Entrega ágil</span>
+          <span>🔒 Seguridad</span>
+          <span>📱 100% responsive</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SCROLL WORDS -->
+  <section class="scroll-text">
+    <div class="scroll-words">
+      <span class="word active">Tu negocio merece crecer</span>
+      <span class="word">Con una web moderna</span>
+      <span class="word">Conectada a WhatsApp</span>
+      <span class="word">Automatizada y ágil</span>
+      <span class="word">Con Duoclick 🚀</span>
+    </div>
+  </section>
+
+  <!-- HERO PARALLAX -->
+  <section class="hero-parallax">
+    <h1>Soluciones digitales <span class="accent">a un click</span></h1>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="servicios" class="container">
+    <h2 class="section-title reveal">Servicios que impulsan tu negocio</h2>
+    <p class="section-sub reveal">Selecciona lo que necesitas hoy. Escala cuando quieras.</p>
+    <div class="services">
+      <article class="card reveal"><span class="badge">Web</span><h3>Landing pages</h3><p>Diseño orientado a resultados, velocidad y SEO técnico.</p></article>
+      <article class="card reveal"><span class="badge">Catálogo</span><h3>E-commerce ligero</h3><p>Muestra productos y vende por WhatsApp o pasarela.</p></article>
+      <article class="card reveal"><span class="badge">Reservas</span><h3>Con WhatsApp</h3><p>Agenda y recordatorios automáticos.</p></article>
+      <article class="card reveal"><span class="badge">Automatización</span><h3>Bots y flujos</h3><p>Automatiza leads, reportes y más.</p></article>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contacto" class="container">
+    <h2 class="section-title reveal">Cuéntanos tu idea</h2>
+    <p class="section-sub reveal">Te damos una propuesta en menos de 24 horas.</p>
+    <form class="reveal" onsubmit="return sendWhatsApp(event)">
+      <input type="text" id="name" placeholder="Nombre" required>
+      <input type="email" id="email" placeholder="Correo" required>
+      <input type="text" id="phone" placeholder="WhatsApp (opcional)">
+      <input type="text" id="service" placeholder="Servicio de interés" required>
+      <textarea id="message" placeholder="Cuéntanos sobre tu negocio" rows="4"></textarea>
+      <button class="btn btn-cta" type="submit">Enviar por WhatsApp</button>
+    </form>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> Duoclick. Soluciones a un click.</p>
+      <div>
+        <a href="#">Instagram</a> | <a href="#">Facebook</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="wa">
+    <a href="#" onclick="openWA()">🟢</a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
