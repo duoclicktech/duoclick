@@ -1,18 +1,23 @@
 :root {
-    --bg-0: #0b0f1a;
-    --bg-1: #0f172a;
-    --card: rgba(255, 255, 255, 0.06);
-    --text: #e5e7eb;
-    --muted: #9ca3af;
+    --bg-0: #ffffff;
+    /* fondo blanco */
+    --bg-1: #f9fafb;
+    /* gris muy claro */
+    --card: #f3f4f6;
+    /* gris claro para tarjetas */
+    --text: #111111;
+    /* texto principal negro */
+    --muted: #4b5563;
+    /* gris medio para secundarios */
     --accent: #e11d48;
+    /* rojo principal */
     --accent-2: #ef4444;
-    --ring: rgba(225, 29, 72, .4);
-    --ok: #10b981;
+    /* rojo variante */
+    --ring: rgba(225, 29, 72, .3);
+    --ok: #16a34a;
     --warn: #f59e0b;
-    --shadow: 0 10px 30px rgba(0, 0, 0, .45);
-    --radius: 1.25rem;
-    --glass: backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    --shadow: 0 4px 14px rgba(0, 0, 0, .08);
+    --radius: 1rem;
     --container: min(1200px, 92vw);
 }
 
@@ -22,13 +27,11 @@
 
 body {
     margin: 0;
-    transition: background 1s ease;
     padding-top: 70px;
     font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     color: var(--text);
-    background: radial-gradient(1200px 800px at 80% -10%, rgba(225, 29, 72, .12), transparent 60%),
-        radial-gradient(900px 600px at 0% 0%, rgba(255, 255, 255, .06), transparent 50%),
-        var(--bg-0);
+    background: var(--bg-0);
+    transition: background 1s ease, color 0.3s ease;
 }
 
 body::before {
@@ -67,12 +70,13 @@ img {
     left: 0;
     z-index: 1000;
     width: 100%;
-    background: linear-gradient(to bottom, rgba(11, 15, 26, .9), rgba(11, 15, 26, .4));
-    border-bottom: 1px solid rgba(255, 255, 255, .06);
+    background: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid #e5e7eb;
     box-shadow: var(--shadow);
-    padding: .6rem 0;
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+    padding: .6rem 1rem;
+    /* Controla espacio arriba/abajo */
+    display: flex;
+    align-items: center;
 }
 
 .nav-wrap {
@@ -86,17 +90,14 @@ img {
     display: flex;
     align-items: center;
     gap: .75rem;
-    font-weight: 700;
-    letter-spacing: .3px
 }
 
-.brand svg {
-    width: 34px;
-    height: 34px
-}
-
-.brand .name {
-    font-size: 1.05rem
+.brand .logo {
+    height: 40px;
+    /* Ajusta el tamaño visual del logo */
+    width: auto;
+    display: block;
+    object-fit: contain;
 }
 
 .nav a.btn {
@@ -117,7 +118,7 @@ img {
 }
 
 .menu a {
-    opacity: .9
+    color: var(--text);
 }
 
 .menu-toggle {
@@ -242,7 +243,7 @@ section {
 .section-title {
     font-size: clamp(1.4rem, 2.2vw, 2rem);
     font-weight: 800;
-    margin: 0 0 10px
+    margin: 10px 0 10px
 }
 
 .section-sub {
@@ -276,8 +277,8 @@ section {
 }
 
 .card {
-    background: var(--card);
-    border: 1px solid rgba(255, 255, 255, .08);
+    background: #fff;
+    border: 1px solid #e5e7eb;
     border-radius: var(--radius);
     padding: 18px;
     transition: transform .25s ease, border-color .25s ease;
@@ -288,7 +289,7 @@ section {
 
 .card:hover {
     transform: translateY(-4px);
-    border-color: rgba(225, 29, 72, .45)
+    border-color: var(--accent);
 }
 
 .card h3 {
@@ -299,6 +300,57 @@ section {
 .card p {
     color: var(--muted);
     font-size: .95rem
+}
+
+.scroll-cards .card {
+    flex: 0 0 80vw;
+    margin: 0 2vw;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform .3s ease;
+}
+
+.scroll-cards .card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent);
+}
+
+.scroll-cards .card img {
+    width: 60%;
+    /* ocupa el 60% del ancho de la card */
+    max-width: 280px;
+    /* pero nunca más de 280px */
+    height: auto;
+    margin-bottom: 1.5rem;
+}
+
+.scroll-cards h3 {
+    margin: 0.5rem 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.scroll-cards p {
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0.5rem 0 1rem;
+}
+
+.scroll-cards .stat {
+    margin-top: auto;
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 1rem;
 }
 
 .badge {
@@ -521,7 +573,7 @@ footer {
 }
 
 .hero-parallax {
-    background: url('https://images.unsplash.com/photo-1520681091300-1e43c73a047d?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+    background: linear-gradient(135deg, #ffffff, #f9fafb);
     background-attachment: fixed;
     display: flex;
     align-items: center;
@@ -532,9 +584,9 @@ footer {
 }
 
 .hero-parallax h1 {
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: 2.5rem;
     font-weight: 800;
-    color: #fff;
+    color: var(--text);
     text-shadow: 0 4px 20px rgba(0, 0, 0, .5);
 }
 
@@ -608,16 +660,28 @@ footer {
 .scroll-cards .card {
     flex: 0 0 80vw;
     margin: 0 2vw;
-    background: var(--card);
-    border: 1px solid rgba(255, 255, 255, .08);
+    background: #fff;
+    border: 1px solid #e5e7eb;
     border-radius: var(--radius);
     padding: 2rem;
     box-shadow: var(--shadow);
     color: var(--text);
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    transition: transform .3s ease;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.scroll-cards .icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.scroll-cards .stat {
+    margin-top: 1rem;
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 1.1rem;
 }
 
 .scroll-cards .card:hover {
@@ -636,6 +700,21 @@ footer {
     color: var(--muted);
     font-size: 1rem;
     line-height: 1.5;
+}
+
+.btn-small {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.btn-small:hover {
+    background: var(--accent-2);
 }
 
 .cursor {
@@ -750,13 +829,25 @@ footer {
     .menu {
         display: none;
         flex-direction: column;
-        background: #111;
+        background: var(--bg-0);
+        /* blanco */
+        border-top: 1px solid #e5e7eb;
         width: 100%;
         padding: 1rem;
         position: absolute;
         top: 100%;
-        /* justo debajo del nav */
         left: 0;
+    }
+
+    .menu a {
+        color: var(--text);
+        /* negro */
+        padding: .75rem 0;
+        border-bottom: 1px solid #f3f4f6;
+    }
+
+    .menu a:last-child {
+        border-bottom: none;
     }
 
     .nav.open .menu {

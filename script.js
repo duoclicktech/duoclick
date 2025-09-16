@@ -96,8 +96,9 @@ if (!('ontouchstart' in window)) {
 
     function setHeight() {
         const viewportH = window.innerHeight;
-        const extraScroll = track.scrollWidth - window.innerWidth;
-        container.style.height = viewportH + extraScroll + 'px';
+        const extraScroll = Math.max(track.scrollWidth - window.innerWidth, 0);
+        const maxExtra = window.innerHeight * 1.2; // nunca más de 120% de la altura de pantalla
+        container.style.height = viewportH + Math.min(extraScroll, maxExtra) + 'px';
     }
 
     function onScroll() {
@@ -115,3 +116,4 @@ if (!('ontouchstart' in window)) {
     setHeight();
     onScroll();
 })();
+
