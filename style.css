@@ -134,6 +134,13 @@ img {
     padding: clamp(64px, 8vw, 120px) 0 72px;
 }
 
+.hero-visual img {
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, .15);
+    transform: rotate(-2deg);
+}
+
 .grid {
     display: grid;
     grid-template-columns: 1.1fr .9fr;
@@ -407,6 +414,29 @@ section {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 16px
+}
+
+.hero-parallax.automation {
+    background: linear-gradient(135deg, #fff, #fce7ef);
+    /* un degradado limpio */
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.hero-parallax.automation h1 {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800;
+    color: #111;
+    margin-bottom: 1rem;
+}
+
+.hero-parallax.automation p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: #374151;
+    /* gris oscuro, buen contraste */
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 1.6;
 }
 
 @media (max-width:900px) {
