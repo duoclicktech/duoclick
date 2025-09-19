@@ -13,6 +13,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
 
+  <!-- Preload imágenes críticas -->
+  <link rel="preload" as="image" href="assets/logo-duoclick.png" type="image/png">
+  <link rel="preload" as="image" href="assets/mockup-dashboard.webp" type="image/webp">
+
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
@@ -22,7 +26,7 @@
   <nav class="nav">
     <div class="container nav-wrap">
       <a href="#" class="brand" aria-label="Inicio Duoclick">
-        <img src="assets/logo-duoclick.png" alt="Logo Duoclick" class="logo">
+        <img src="assets/logo-duoclick.png" alt="Logo Duoclick" class="logo" decoding="async">
       </a>
 
       <!-- Botón menú móvil -->
@@ -59,11 +63,14 @@
         </div>
       </div>
       <div class="hero-visual reveal">
-        <img src="./assets/mockup-dashboard.png" alt="Ejemplo software Duoclick">
+        <picture>
+          <source srcset="./assets/mockup-dashboard.avif" type="image/avif">
+          <source srcset="./assets/mockup-dashboard.webp" type="image/webp">
+          <img src="./assets/mockup-dashboard.png" alt="Ejemplo software Duoclick" decoding="async" loading="eager">
+        </picture>
       </div>
     </div>
   </header>
-
 
   <!-- WHY CHOOSE US - Scroll Horizontal -->
   <div class="scroll-container">
@@ -71,35 +78,35 @@
       <div class="cards-track">
 
         <article class="card">
-          <img src="./assets/images/crecimiento.png" alt="Crecimiento">
+          <img src="./assets/images/crecimiento.webp" alt="Crecimiento" loading="lazy" decoding="async">
           <h3>Crecimiento</h3>
           <p>Impulsa tu negocio con soluciones digitales modernas y rápidas.</p>
           <span class="stat">+500 proyectos</span>
         </article>
 
         <article class="card">
-          <img src="./assets/images/velocidad.png" alt="Velocidad">
+          <img src="./assets/images/velocidad.webp" alt="Velocidad" loading="lazy" decoding="async">
           <h3>Velocidad</h3>
           <p>Entregamos sitios en días, no en meses. Con optimización SEO real.</p>
           <span class="stat">Entrega en 7 días</span>
         </article>
 
         <article class="card">
-          <img src="./assets/images/seguridad.png" alt="Seguridad">
+          <img src="./assets/images/seguridad.webp" alt="Seguridad" loading="lazy" decoding="async">
           <h3>Seguridad</h3>
           <p>Buenas prácticas de desarrollo, datos protegidos y confianza online.</p>
           <span class="stat">99.9% uptime</span>
         </article>
 
         <article class="card">
-          <img src="./assets/images/adaptabilidad.png" alt="Adaptabilidad">
+          <img src="./assets/images/adaptabilidad.webp" alt="Adaptabilidad" loading="lazy" decoding="async">
           <h3>Adaptabilidad</h3>
           <p>Diseños 100% responsive, listos para cualquier dispositivo.</p>
           <span class="stat">Multiplataforma</span>
         </article>
 
         <article class="card">
-          <img src="./assets/images/acompanamiento.png" alt="Acompañamiento">
+          <img src="./assets/images/acompanamiento.webp" alt="Acompañamiento" loading="lazy" decoding="async">
           <h3>Acompañamiento</h3>
           <p>Soporte continuo y mejoras para evolucionar junto a tu negocio.</p>
           <span class="stat">24/7 soporte</span>
