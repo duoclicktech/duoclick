@@ -1,5 +1,5 @@
 // Configura tu WhatsApp aquí (sin +, solo número con indicativo país)
-const WHATSAPP_NUMBER = '573001112233';
+const WHATSAPP_NUMBER = '573122882557';
 
 function openWA() {
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hola Duoclick, quiero una web profesional')}`;
