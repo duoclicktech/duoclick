@@ -1,338 +1,508 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#e11d48" />
+    <title>Duoclick — Soluciones a un click</title>
+    <meta
+      name="description"
+      content="Páginas web profesionales, automatización y desarrollo a medida. Duoclick: Soluciones a un click."
+    />
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0b0f1a" />
-  <title>Duoclick — Soluciones a un click</title>
-  <meta name="description"
-    content="Páginas web profesionales, automatización y desarrollo a medida. Duoclick: Soluciones a un click." />
+    <!-- SEO & Social Sharing (Open Graph) -->
+    <meta property="og:title" content="Duoclick — Soluciones Digitales" />
+    <meta
+      property="og:description"
+      content="Automatizamos tu negocio y creamos tu presencia web con tecnología de punta."
+    />
+    <meta property="og:image" content="assets/logo-duoclick.png" />
+    <meta property="og:type" content="website" />
 
-  <!-- Fuente moderna -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
+    <!-- Fuente moderna -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Preload imágenes críticas -->
-  <link rel="preload" as="image" href="assets/logo-duoclick.png" type="image/png">
-  <link rel="preload" as="image" href="assets/mockup-dashboard.webp" type="image/webp">
+    <!-- Preload imágenes críticas -->
+    <link
+      rel="preload"
+      as="image"
+      href="assets/logo-duoclick.png"
+      type="image/png"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="assets/mockup-dashboard.webp"
+      type="image/webp"
+    />
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
-</head>
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
-  <!-- NAV -->
-  <nav class="nav">
-    <div class="container nav-wrap">
-      <a href="#" class="brand" aria-label="Inicio Duoclick">
-        <img src="assets/logo-duoclick.png" alt="Logo Duoclick" class="logo" decoding="async">
-      </a>
+  <body>
+    <!-- NAV -->
+    <nav class="nav">
+      <div class="container nav-wrap">
+        <a href="#" class="brand" aria-label="Inicio Duoclick">
+          <img
+            src="assets/logo-duoclick.png"
+            alt="Logo Duoclick"
+            class="logo"
+            decoding="async"
+          />
+        </a>
 
-      <!-- Botón menú móvil -->
-      <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+        <!-- Botón menú móvil -->
+        <button class="menu-toggle" aria-label="Abrir menú">☰</button>
 
-      <div class="menu">
-        <a href="#servicios">Servicios</a>
-        <a href="#portafolio">Portafolio</a>
-        <a href="#precios">Precios</a>
-        <a href="#contacto" class="btn btn-primary">Contáctanos</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <header class="hero container">
-    <div class="grid">
-      <div>
-        <h1 class="headline reveal">
-          Creamos <span class="accent">páginas web</span><br>
-          y <span class="accent">software inteligente</span><br>
-          para tu negocio
-        </h1>
-        <p class="sub reveal">Sitios modernos y <strong>aplicaciones personalizadas</strong>. Integración con WhatsApp,
-          sistemas internos, dashboards y más. <strong>Todo en días, no en meses.</strong></p>
-        <div class="actions reveal">
-          <a class="btn btn-cta" href="#contacto">Quiero mi web</a>
-          <a class="btn" href="#servicios">Ver servicios</a>
+        <div class="menu">
+          <a href="#servicios">Servicios</a>
+          <a href="#portafolio">Portafolio</a>
+          <a href="#precios">Precios</a>
+          <a href="#contacto" class="btn btn-primary">Contáctanos</a>
         </div>
-        <div class="meta reveal">
-          <span>Entrega ágil</span>
-          <span>Seguridad</span>
-          <span>100% responsive</span>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero container">
+      <div class="grid">
+        <div>
+          <h1 class="headline reveal">
+            Creamos <span class="accent">páginas web</span><br />
+            y <span class="accent">software inteligente</span><br />
+            para tu negocio
+          </h1>
+          <p class="sub reveal">
+            Sitios modernos y <strong>aplicaciones personalizadas</strong>.
+            Integración con WhatsApp, sistemas internos, dashboards y más.
+            <strong>Todo en días, no en meses.</strong>
+          </p>
+          <div class="actions reveal">
+            <a class="btn btn-cta" href="#contacto">Quiero mi web</a>
+            <a class="btn" href="#servicios">Ver servicios</a>
+          </div>
+          <div class="meta reveal">
+            <span>Entrega ágil</span>
+            <span>Seguridad</span>
+            <span>100% responsive</span>
+          </div>
+        </div>
+        <div class="hero-visual reveal">
+          <picture>
+            <source srcset="./assets/mockup-dashboard.avif" type="image/avif" />
+            <source srcset="./assets/mockup-dashboard.webp" type="image/webp" />
+            <img
+              src="./assets/mockup-dashboard.png"
+              alt="Ejemplo software Duoclick"
+              decoding="async"
+              loading="eager"
+            />
+          </picture>
         </div>
       </div>
-      <div class="hero-visual reveal">
-        <picture>
-          <source srcset="./assets/mockup-dashboard.avif" type="image/avif">
-          <source srcset="./assets/mockup-dashboard.webp" type="image/webp">
-          <img src="./assets/mockup-dashboard.png" alt="Ejemplo software Duoclick" decoding="async" loading="eager">
-        </picture>
-      </div>
+    </header>
+
+    <!-- WHY CHOOSE US - Scroll Horizontal -->
+    <div class="scroll-container">
+      <section class="scroll-cards">
+        <div class="cards-track">
+          <article class="card">
+            <img
+              src="./assets/images/crecimiento.webp"
+              alt="Crecimiento"
+              loading="lazy"
+              decoding="async"
+            />
+            <h3>Crecimiento</h3>
+            <p>
+              Impulsa tu negocio con soluciones digitales modernas y rápidas.
+            </p>
+            <span class="stat">+500 proyectos</span>
+          </article>
+
+          <article class="card">
+            <img
+              src="./assets/images/velocidad.webp"
+              alt="Velocidad"
+              loading="lazy"
+              decoding="async"
+            />
+            <h3>Velocidad</h3>
+            <p>
+              Entregamos sitios en días, no en meses. Con optimización SEO real.
+            </p>
+            <span class="stat">Entrega en 7 días</span>
+          </article>
+
+          <article class="card">
+            <img
+              src="./assets/images/seguridad.webp"
+              alt="Seguridad"
+              loading="lazy"
+              decoding="async"
+            />
+            <h3>Seguridad</h3>
+            <p>
+              Buenas prácticas de desarrollo, datos protegidos y confianza
+              online.
+            </p>
+            <span class="stat">99.9% uptime</span>
+          </article>
+
+          <article class="card">
+            <img
+              src="./assets/images/adaptabilidad.webp"
+              alt="Adaptabilidad"
+              loading="lazy"
+              decoding="async"
+            />
+            <h3>Adaptabilidad</h3>
+            <p>Diseños 100% responsive, listos para cualquier dispositivo.</p>
+            <span class="stat">Multiplataforma</span>
+          </article>
+
+          <article class="card">
+            <img
+              src="./assets/images/acompanamiento.webp"
+              alt="Acompañamiento"
+              loading="lazy"
+              decoding="async"
+            />
+            <h3>Acompañamiento</h3>
+            <p>
+              Soporte continuo y mejoras para evolucionar junto a tu negocio.
+            </p>
+            <span class="stat">24/7 soporte</span>
+          </article>
+        </div>
+      </section>
     </div>
-  </header>
 
-  <!-- WHY CHOOSE US - Scroll Horizontal -->
-  <div class="scroll-container">
-    <section class="scroll-cards">
-      <div class="cards-track">
+    <!-- HERO PARALLAX -->
+    <section class="hero-parallax">
+      <h1>Soluciones digitales <span class="accent">a un click</span></h1>
+    </section>
 
-        <article class="card">
-          <img src="./assets/images/crecimiento.webp" alt="Crecimiento" loading="lazy" decoding="async">
-          <h3>Crecimiento</h3>
-          <p>Impulsa tu negocio con soluciones digitales modernas y rápidas.</p>
-          <span class="stat">+500 proyectos</span>
+    <!-- SERVICES -->
+    <section id="servicios" class="container">
+      <h2 class="section-title reveal">Servicios que impulsan tu negocio</h2>
+      <p class="section-sub reveal">
+        Selecciona lo que necesitas hoy. Escala cuando quieras.
+      </p>
+      <div class="services">
+        <article class="card reveal">
+          <span class="badge">Web</span>
+          <h3>Landing pages</h3>
+          <p>Diseño orientado a resultados, velocidad y SEO técnico.</p>
         </article>
-
-        <article class="card">
-          <img src="./assets/images/velocidad.webp" alt="Velocidad" loading="lazy" decoding="async">
-          <h3>Velocidad</h3>
-          <p>Entregamos sitios en días, no en meses. Con optimización SEO real.</p>
-          <span class="stat">Entrega en 7 días</span>
+        <article class="card reveal">
+          <span class="badge">Catálogo</span>
+          <h3>E-commerce ligero</h3>
+          <p>Muestra productos y vende por WhatsApp o pasarela.</p>
         </article>
-
-        <article class="card">
-          <img src="./assets/images/seguridad.webp" alt="Seguridad" loading="lazy" decoding="async">
-          <h3>Seguridad</h3>
-          <p>Buenas prácticas de desarrollo, datos protegidos y confianza online.</p>
-          <span class="stat">99.9% uptime</span>
+        <article class="card reveal">
+          <span class="badge">Reservas</span>
+          <h3>Con WhatsApp</h3>
+          <p>Agenda y recordatorios automáticos.</p>
         </article>
-
-        <article class="card">
-          <img src="./assets/images/adaptabilidad.webp" alt="Adaptabilidad" loading="lazy" decoding="async">
-          <h3>Adaptabilidad</h3>
-          <p>Diseños 100% responsive, listos para cualquier dispositivo.</p>
-          <span class="stat">Multiplataforma</span>
+        <article class="card reveal">
+          <span class="badge">Automatización</span>
+          <h3>Bots y flujos</h3>
+          <p>Automatiza leads, reportes y más.</p>
         </article>
-
-        <article class="card">
-          <img src="./assets/images/acompanamiento.webp" alt="Acompañamiento" loading="lazy" decoding="async">
-          <h3>Acompañamiento</h3>
-          <p>Soporte continuo y mejoras para evolucionar junto a tu negocio.</p>
-          <span class="stat">24/7 soporte</span>
+        <article class="card reveal">
+          <span class="badge">Software</span>
+          <h3>Sistemas a medida</h3>
+          <p>
+            Aplicaciones web empresariales, paneles de control y ERPs ligeros.
+          </p>
         </article>
-
+        <article class="card reveal">
+          <span class="badge">Integraciones</span>
+          <h3>APIs y Conectores</h3>
+          <p>
+            Conecta tu web o sistema con CRM, facturación o cualquier API
+            externa.
+          </p>
+        </article>
+        <article class="card reveal">
+          <span class="badge">Data</span>
+          <h3>Dashboards</h3>
+          <p>
+            Visualización de métricas en tiempo real para tomar mejores
+            decisiones.
+          </p>
+        </article>
       </div>
     </section>
-  </div>
 
-  <!-- HERO PARALLAX -->
-  <section class="hero-parallax">
-    <h1>Soluciones digitales <span class="accent">a un click</span></h1>
-  </section>
+    <!-- AUTOMATION PARALLAX -->
+    <section class="hero-parallax automation">
+      <div class="container">
+        <h1>
+          Más que webs: <span class="accent">automatizamos</span> tus procesos
+        </h1>
+        <p>
+          Desde bots de WhatsApp hasta integraciones con sistemas internos.
+          Reducimos tareas repetitivas y escalamos tu negocio con software
+          inteligente.
+        </p>
+      </div>
+    </section>
 
-  <!-- SERVICES -->
-  <section id="servicios" class="container">
-    <h2 class="section-title reveal">Servicios que impulsan tu negocio</h2>
-    <p class="section-sub reveal">Selecciona lo que necesitas hoy. Escala cuando quieras.</p>
-    <div class="services">
-      <article class="card reveal"><span class="badge">Web</span>
-        <h3>Landing pages</h3>
-        <p>Diseño orientado a resultados, velocidad y SEO técnico.</p>
-      </article>
-      <article class="card reveal"><span class="badge">Catálogo</span>
-        <h3>E-commerce ligero</h3>
-        <p>Muestra productos y vende por WhatsApp o pasarela.</p>
-      </article>
-      <article class="card reveal"><span class="badge">Reservas</span>
-        <h3>Con WhatsApp</h3>
-        <p>Agenda y recordatorios automáticos.</p>
-      </article>
-      <article class="card reveal"><span class="badge">Automatización</span>
-        <h3>Bots y flujos</h3>
-        <p>Automatiza leads, reportes y más.</p>
-      </article>
-      <article class="card reveal"><span class="badge">Software</span>
-        <h3>Sistemas a medida</h3>
-        <p>Aplicaciones web empresariales, paneles de control y ERPs ligeros.</p>
-      </article>
-      <article class="card reveal"><span class="badge">Integraciones</span>
-        <h3>APIs y Conectores</h3>
-        <p>Conecta tu web o sistema con CRM, facturación o cualquier API externa.</p>
-      </article>
-      <article class="card reveal"><span class="badge">Data</span>
-        <h3>Dashboards</h3>
-        <p>Visualización de métricas en tiempo real para tomar mejores decisiones.</p>
-      </article>
-    </div>
-  </section>
-
-  <section class="hero-parallax automation">
-    <div class="container">
-      <h1>Más que webs: <span class="accent">automatizamos</span> tus procesos</h1>
-      <p>
-        Desde bots de WhatsApp hasta integraciones con sistemas internos.
-        Reducimos tareas repetitivas y escalamos tu negocio con software inteligente.
+    <!-- PORTAFOLIO -->
+    <section id="portafolio" class="container">
+      <h2 class="section-title reveal">Nuestro trabajo</h2>
+      <p class="section-sub reveal">
+        Algunos proyectos y lo que dicen nuestros clientes.
       </p>
+
+      <div class="portfolio">
+        <article
+          class="shot reveal"
+          style="
+            background-image: url(&quot;https://picsum.photos/600/400?random=1&quot;);
+          "
+        ></article>
+        <article
+          class="shot reveal"
+          style="
+            background-image: url(&quot;https://picsum.photos/600/400?random=2&quot;);
+          "
+        ></article>
+        <article
+          class="shot reveal"
+          style="
+            background-image: url(&quot;https://picsum.photos/600/400?random=3&quot;);
+          "
+        ></article>
+      </div>
+
+      <div class="testimonials">
+        <blockquote class="card reveal">
+          <p>
+            “Gracias a Duoclick nuestra página empezó a convertir clientes desde
+            la primera semana.”
+          </p>
+          <footer>— María López, Emprendedora</footer>
+        </blockquote>
+        <blockquote class="card reveal">
+          <p>
+            “Automatizamos reservas por WhatsApp y nos ahorramos horas de
+            gestión cada día.”
+          </p>
+          <footer>— Andrés Torres, Gimnasio FitPlus</footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- PROCESO -->
+    <section id="proceso" class="container">
+      <h2 class="section-title reveal">Nuestro proceso</h2>
+      <p class="section-sub reveal">
+        Así transformamos tu idea en un producto digital real.
+      </p>
+      <div class="steps">
+        <div class="step reveal">
+          <div class="num">1</div>
+          <h3>Brief</h3>
+          <p>Escuchamos tus necesidades y definimos objetivos claros.</p>
+        </div>
+        <div class="step reveal">
+          <div class="num">2</div>
+          <h3>Diseño</h3>
+          <p>Prototipamos y validamos la experiencia de usuario.</p>
+        </div>
+        <div class="step reveal">
+          <div class="num">3</div>
+          <h3>Desarrollo</h3>
+          <p>Código limpio, rápido y seguro listo para producción.</p>
+        </div>
+        <div class="step reveal">
+          <div class="num">4</div>
+          <h3>Lanzamiento</h3>
+          <p>Publicamos en la nube y optimizamos SEO desde el inicio.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLANES Y PRECIOS -->
+    <section id="precios" class="container">
+      <h2 class="section-title reveal">Planes pensados para ti</h2>
+      <p class="section-sub reveal">
+        Elige el que más se ajuste a tu negocio. Todos son escalables.
+      </p>
+      <div class="pricing">
+        <div class="plan reveal">
+          <h3>Landing Básica</h3>
+          <ul class="features">
+            <li>✔ 1 página de alto impacto</li>
+            <li>✔ Diseño responsive</li>
+            <li>✔ Integración WhatsApp</li>
+          </ul>
+          <a href="#contacto" class="btn btn-cta">Quiero este plan</a>
+        </div>
+        <div class="plan pop reveal">
+          <h3>Sitio Profesional</h3>
+          <ul class="features">
+            <li>✔ Hasta 5 secciones</li>
+            <li>✔ SEO técnico</li>
+            <li>✔ Hosting + dominio 1 año</li>
+          </ul>
+          <a href="#contacto" class="btn btn-cta">El más popular</a>
+        </div>
+        <div class="plan reveal">
+          <h3>Automatización</h3>
+          <ul class="features">
+            <li>✔ Bots y flujos de WhatsApp</li>
+            <li>✔ Integración con Google Sheets</li>
+            <li>✔ Soporte dedicado</li>
+          </ul>
+          <a href="#contacto" class="btn btn-cta">Escalar mi negocio</a>
+        </div>
+        <div class="plan reveal">
+          <h3>Software Empresarial</h3>
+          <ul class="features">
+            <li>✔ Panel administrativo</li>
+            <li>✔ Integración con APIs</li>
+            <li>✔ Reportes y métricas</li>
+          </ul>
+          <a href="#contacto" class="btn btn-cta">Digitalizar negocio</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contacto" class="container">
+      <div class="card reveal contact-box">
+        <h2 class="section-title">Cuéntanos tu idea</h2>
+        <p class="section-sub">Te damos una propuesta en menos de 24 horas.</p>
+        <form id="wa-form" class="grid-form">
+          <input type="text" id="name" placeholder="Nombre completo" required />
+          <input
+            type="email"
+            id="email"
+            placeholder="Correo electrónico"
+            required
+          />
+          <input type="text" id="phone" placeholder="WhatsApp (opcional)" />
+          <input
+            type="text"
+            id="service"
+            placeholder="Servicio de interés"
+            required
+          />
+          <textarea
+            id="message"
+            placeholder="Cuéntanos sobre tu negocio o idea"
+            rows="4"
+          ></textarea>
+          <button class="btn btn-cta" type="submit">Enviar por WhatsApp</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container">
+      <h2 class="section-title reveal">Preguntas frecuentes</h2>
+      <p class="section-sub reveal">Resolvemos las dudas más comunes.</p>
+      <details class="reveal">
+        <summary>¿En cuánto tiempo entregan mi web?</summary>
+        <p>
+          Una landing básica puede estar lista en 5 días hábiles. Proyectos más
+          complejos se pactan según alcance.
+        </p>
+      </details>
+      <details class="reveal">
+        <summary>¿Incluye dominio y hosting?</summary>
+        <p>
+          Sí, en el plan profesional y empresarial. En el básico podemos
+          asesorarte para adquirirlos de forma segura.
+        </p>
+      </details>
+      <details class="reveal">
+        <summary>¿Puedo pagar por cuotas?</summary>
+        <p>
+          Claro, ofrecemos facilidades de pago (generalmente 50% al iniciar y
+          50% a la entrega) para que arranques sin freno.
+        </p>
+      </details>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>© <span id="year"></span> Duoclick. Soluciones a un click.</p>
+        <div class="footer-links">
+          <a
+            href="https://www.instagram.com/duoclick.tech"
+            target="_blank"
+            rel="noopener"
+            >Instagram</a
+          >
+          |
+          <a
+            href="https://www.facebook.com/share/1JT6g8nLGf/"
+            target="_blank"
+            rel="noopener"
+            >Facebook</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <!-- Social FABs -->
+    <div class="social-fabs" aria-label="Redes sociales">
+      <a
+        class="fab fab-ig"
+        href="https://www.instagram.com/duoclick.tech"
+        target="_blank"
+        rel="noopener"
+        aria-label="Instagram"
+      >
+        <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true">
+          <path
+            d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8a3 3 0 1 1 0-6 3 3 0 0 1 0 6Zm5.5-8.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0Z"
+          />
+          <path
+            d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3Z"
+          />
+        </svg>
+      </a>
+
+      <a
+        class="fab fab-fb"
+        href="https://www.facebook.com/share/1JT6g8nLGf/"
+        target="_blank"
+        rel="noopener"
+        aria-label="Facebook"
+      >
+        <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true">
+          <path
+            d="M22 12a10 10 0 1 0-11.6 9.9v-7h-2.5v-2.9h2.5V9.5c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.3c-1.3 0-1.7.8-1.7 1.6v1.9h2.9l-.5 2.9h-2.4v7A10 10 0 0 0 22 12Z"
+          />
+        </svg>
+      </a>
+
+      <a
+        class="fab fab-wa"
+        id="wa-fab-btn"
+        target="_blank"
+        rel="noopener"
+        aria-label="WhatsApp"
+      >
+        <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true">
+          <path
+            d="M16.2 13.6c-.2-.1-1.3-.7-1.5-.8-.2-.1-.3-.1-.5.1-.1.2-.6.8-.7.9-.1.1-.3.1-.5 0-.2-.1-.9-.3-1.7-1.1-.6-.6-1.1-1.3-1.2-1.5-.1-.2 0-.3.1-.4.1-.1.2-.3.3-.4.1-.1.1-.2.2-.3.1-.1.1-.2.2-.3.1-.1.1-.2 0-.4 0-.1-.5-1.2-.7-1.6-.2-.4-.4-.3-.5-.3h-.4c-.1 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 3.9 3.4.5.2.9.3 1.2.4.5.1 1 .1 1.3.1.4 0 1.3-.3 1.5-.7.2-.4.2-.9.2-1 0-.1-.1-.1-.3-.2zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.4 5l-1 3.7 3.8-1C7.5 20.5 9.7 21 12 21c5.5 0 10-4.5 10-9.9C22 6.5 17.5 2 12 2zm0 17.5c-2.1 0-4-.6-5.6-1.7l-.4-.2-2.3.6.6-2.2-.2-.4C3 14 2.5 13 2.5 12 2.5 7.9 6 4.5 10 4.5S17.5 7.9 17.5 12 14 19.5 12 19.5z"
+          />
+        </svg>
+      </a>
     </div>
-  </section>
 
-  <!-- PORTAFOLIO -->
-  <section id="portafolio" class="container">
-    <h2 class="section-title reveal">Nuestro trabajo</h2>
-    <p class="section-sub reveal">Algunos proyectos y lo que dicen nuestros clientes.</p>
-
-    <div class="portfolio">
-      <article class="shot" style="background-image:url('https://picsum.photos/600/400?random=1')"></article>
-      <article class="shot" style="background-image:url('https://picsum.photos/600/400?random=2')"></article>
-      <article class="shot" style="background-image:url('https://picsum.photos/600/400?random=3')"></article>
-    </div>
-
-    <div class="testimonials">
-      <blockquote class="card reveal">
-        <p>“Gracias a Duoclick nuestra página empezó a convertir clientes desde la primera semana.”</p>
-        <footer>— María López, Emprendedora</footer>
-      </blockquote>
-      <blockquote class="card reveal">
-        <p>“Automatizamos reservas por WhatsApp y nos ahorramos horas de gestión cada día.”</p>
-        <footer>— Andrés Torres, Gimnasio FitPlus</footer>
-      </blockquote>
-    </div>
-  </section>
-
-  <!-- PROCESO -->
-  <section id="proceso" class="container">
-    <h2 class="section-title reveal">Nuestro proceso</h2>
-    <p class="section-sub reveal">Así transformamos tu idea en un producto digital real.</p>
-    <div class="steps">
-      <div class="step reveal">
-        <div class="num">1</div>
-        <h3>Brief</h3>
-        <p>Escuchamos tus necesidades y definimos objetivos claros.</p>
-      </div>
-      <div class="step reveal">
-        <div class="num">2</div>
-        <h3>Diseño</h3>
-        <p>Prototipamos y validamos la experiencia de usuario.</p>
-      </div>
-      <div class="step reveal">
-        <div class="num">3</div>
-        <h3>Desarrollo</h3>
-        <p>Código limpio, rápido y seguro listo para producción.</p>
-      </div>
-      <div class="step reveal">
-        <div class="num">4</div>
-        <h3>Lanzamiento</h3>
-        <p>Publicamos en la nube y optimizamos SEO desde el inicio.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- PLANES Y PRECIOS -->
-  <section id="precios" class="container">
-    <h2 class="section-title reveal">Planes pensados para ti</h2>
-    <p class="section-sub reveal">Elige el que más se ajuste a tu negocio. Todos son escalables.</p>
-    <div class="pricing">
-      <div class="plan reveal">
-        <h3>Landing Básica</h3>
-        <ul class="features">
-          <li>✔ 1 página de alto impacto</li>
-          <li>✔ Diseño responsive</li>
-          <li>✔ Integración WhatsApp</li>
-        </ul>
-        <a href="#contacto" class="btn btn-cta">Quiero este plan</a>
-      </div>
-      <div class="plan pop reveal">
-        <h3>Sitio Profesional</h3>
-        <ul class="features">
-          <li>✔ Hasta 5 secciones</li>
-          <li>✔ SEO técnico</li>
-          <li>✔ Hosting + dominio 1 año</li>
-        </ul>
-        <a href="#contacto" class="btn btn-cta">El más popular</a>
-      </div>
-      <div class="plan reveal">
-        <h3>Automatización</h3>
-        <ul class="features">
-          <li>✔ Bots y flujos de WhatsApp</li>
-          <li>✔ Integración con Google Sheets</li>
-          <li>✔ Soporte dedicado</li>
-        </ul>
-        <a href="#contacto" class="btn btn-cta">Escalar mi negocio</a>
-      </div>
-      <div class="plan reveal">
-        <h3>Software Empresarial</h3>
-        <ul class="features">
-          <li>✔ Panel administrativo</li>
-          <li>✔ Integración con APIs</li>
-          <li>✔ Reportes y métricas</li>
-        </ul>
-        <a href="#contacto" class="btn btn-cta">Digitalizar mi negocio</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contacto" class="container">
-    <h2 class="section-title reveal">Cuéntanos tu idea</h2>
-    <p class="section-sub reveal">Te damos una propuesta en menos de 24 horas.</p>
-    <form class="reveal" onsubmit="return sendWhatsApp(event)">
-      <input type="text" id="name" placeholder="Nombre" required>
-      <input type="email" id="email" placeholder="Correo" required>
-      <input type="text" id="phone" placeholder="WhatsApp (opcional)">
-      <input type="text" id="service" placeholder="Servicio de interés" required>
-      <textarea id="message" placeholder="Cuéntanos sobre tu negocio" rows="4"></textarea>
-      <button class="btn btn-cta" type="submit">Enviar por WhatsApp</button>
-    </form>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq" class="container">
-    <h2 class="section-title reveal">Preguntas frecuentes</h2>
-    <p class="section-sub reveal">Resolvemos las dudas más comunes.</p>
-    <details class="reveal">
-      <summary>¿En cuánto tiempo entregan mi web?</summary>
-      <p>Una landing básica puede estar lista en 5 días hábiles. Proyectos más complejos se pactan según alcance.</p>
-    </details>
-    <details class="reveal">
-      <summary>¿Incluye dominio y hosting?</summary>
-      <p>Sí, en el plan profesional y empresarial. En el básico podemos asesorarte para adquirirlos.</p>
-    </details>
-    <details class="reveal">
-      <summary>¿Puedo pagar por cuotas?</summary>
-      <p>Claro, ofrecemos facilidades de pago para que arranques sin freno.</p>
-    </details>
-  </section>
-
-  <footer>
-    <div class="container">
-      <p>© <span id="year"></span> Duoclick. Soluciones a un click.</p>
-      <div>
-        <a href="#">Instagram</a> | <a href="#">Facebook</a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Social FABs (apiladas) -->
-  <div class="social-fabs" aria-label="Redes sociales">
-
-    <a class="fab fab-ig" href="https://www.instagram.com/duoclick.tech?utm_source=qr&igsh=ZW5jNG14Njkzend4"
-      target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
-      <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true">
-        <path
-          d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8a3 3 0 1 1 0-6 3 3 0 0 1 0 6Zm5.5-8.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0Z" />
-        <path
-          d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3Z" />
-      </svg>
-    </a>
-
-    <a class="fab fab-fb" href="https://www.facebook.com/share/1JT6g8nLGf/" target="_blank" rel="noopener"
-      aria-label="Facebook" title="Facebook">
-      <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true">
-        <path
-          d="M22 12a10 10 0 1 0-11.6 9.9v-7h-2.5v-2.9h2.5V9.5c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.3c-1.3 0-1.7.8-1.7 1.6v1.9h2.9l-.5 2.9h-2.4v7A10 10 0 0 0 22 12Z" />
-      </svg>
-    </a>
-
-    <a class="fab fab-wa" data-whatsapp target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp">
-      <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true">
-        <path
-          d="M16.2 13.6c-.2-.1-1.3-.7-1.5-.8-.2-.1-.3-.1-.5.1-.1.2-.6.8-.7.9-.1.1-.3.1-.5 0-.2-.1-.9-.3-1.7-1.1-.6-.6-1.1-1.3-1.2-1.5-.1-.2 0-.3.1-.4.1-.1.2-.3.3-.4.1-.1.1-.2.2-.3.1-.1.1-.2.2-.3.1-.1.1-.2 0-.4 0-.1-.5-1.2-.7-1.6-.2-.4-.4-.3-.5-.3h-.4c-.1 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 3.9 3.4.5.2.9.3 1.2.4.5.1 1 .1 1.3.1.4 0 1.3-.3 1.5-.7.2-.4.2-.9.2-1 0-.1-.1-.1-.3-.2zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.4 5l-1 3.7 3.8-1C7.5 20.5 9.7 21 12 21c5.5 0 10-4.5 10-9.9C22 6.5 17.5 2 12 2zm0 17.5c-2.1 0-4-.6-5.6-1.7l-.4-.2-2.3.6.6-2.2-.2-.4C3 14 2.5 13 2.5 12 2.5 7.9 6 4.5 10 4.5S17.5 7.9 17.5 12 14 19.5 12 19.5z" />
-      </svg>
-    </a>
-  </div>
-
-  <script src="script.js"></script>
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>
