@@ -1,506 +1,972 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" class="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#e11d48" />
-    <title>Duoclick — Soluciones a un click</title>
+    <meta name="theme-color" content="#0a0b10" />
+    <title>Duoclick — Software, Web & Automatización de Alto Impacto</title>
     <meta
       name="description"
-      content="Páginas web profesionales, automatización y desarrollo a medida. Duoclick: Soluciones a un click."
+      content="Desarrollo de páginas web de alta conversión, software a medida y bots de WhatsApp para escalar tu negocio. Duoclick: Soluciones a un click."
     />
 
     <!-- SEO & Social Sharing (Open Graph) -->
-    <meta property="og:title" content="Duoclick — Soluciones Digitales" />
+    <meta property="og:title" content="Duoclick — Soluciones Digitales y Software Inteligente" />
     <meta
       property="og:description"
-      content="Automatizamos tu negocio y creamos tu presencia web con tecnología de punta."
+      content="Automatizamos tu negocio y creamos tu presencia web con tecnología de punta. Todo en días, no en meses."
     />
     <meta property="og:image" content="assets/logo-duoclick.png" />
     <meta property="og:type" content="website" />
 
-    <!-- Fuente moderna -->
+    <!-- Fuentes Modernas Google Fonts (Inter + Plus Jakarta Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
       rel="stylesheet"
     />
 
     <!-- Preload imágenes críticas -->
-    <link
-      rel="preload"
-      as="image"
-      href="assets/logo-duoclick.png"
-      type="image/png"
-    />
-    <link
-      rel="preload"
-      as="image"
-      href="assets/mockup-dashboard.webp"
-      type="image/webp"
-    />
+    <link rel="preload" as="image" href="assets/logo-duoclick.png" type="image/png" />
+    <link rel="preload" as="image" href="assets/mockup-dashboard.webp" type="image/webp" />
 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
-    <!-- NAV -->
-    <nav class="nav">
-      <div class="container nav-wrap">
-        <a href="#" class="brand" aria-label="Inicio Duoclick">
-          <img
-            src="assets/logo-duoclick.png"
-            alt="Logo Duoclick"
-            class="logo"
-            decoding="async"
-          />
-        </a>
+    <!-- Efectos de Fondo Ambientales (Dark Tech Glows) -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+    <div class="grid-overlay"></div>
 
-        <!-- Botón menú móvil -->
-        <button class="menu-toggle" aria-label="Abrir menú">☰</button>
-
-        <div class="menu">
-          <a href="#servicios">Servicios</a>
-          <a href="#portafolio">Portafolio</a>
-          <a href="#precios">Precios</a>
-          <a href="#contacto" class="btn btn-primary">Contáctanos</a>
-        </div>
-      </div>
-    </nav>
-
-    <!-- HERO -->
-    <header class="hero container">
-      <div class="grid">
-        <div>
-          <h1 class="headline reveal">
-            Creamos <span class="accent">páginas web</span><br />
-            y <span class="accent">software inteligente</span><br />
-            para tu negocio
-          </h1>
-          <p class="sub reveal">
-            Sitios modernos y <strong>aplicaciones personalizadas</strong>.
-            Integración con WhatsApp, sistemas internos, dashboards y más.
-            <strong>Todo en días, no en meses.</strong>
-          </p>
-          <div class="actions reveal">
-            <a class="btn btn-cta" href="#contacto">Quiero mi web</a>
-            <a class="btn" href="#servicios">Ver servicios</a>
-          </div>
-          <div class="meta reveal">
-            <span>Entrega ágil</span>
-            <span>Seguridad</span>
-            <span>100% responsive</span>
-          </div>
-        </div>
-        <div class="hero-visual reveal">
-          <picture>
-            <source srcset="./assets/mockup-dashboard.avif" type="image/avif" />
-            <source srcset="./assets/mockup-dashboard.webp" type="image/webp" />
+    <!-- HEADER / NAV -->
+    <header class="header-nav">
+      <nav class="nav">
+        <div class="container nav-wrap">
+          <a href="#" class="brand" aria-label="Inicio Duoclick">
             <img
-              src="./assets/mockup-dashboard.png"
-              alt="Ejemplo software Duoclick"
+              src="assets/logo-duoclick.png"
+              alt="Logo Duoclick"
+              class="logo"
               decoding="async"
-              loading="eager"
             />
-          </picture>
+          </a>
+
+          <!-- Status badge en desktop -->
+          <div class="status-pill">
+            <span class="status-dot"></span>
+            <span>Disponibles para nuevos proyectos</span>
+          </div>
+
+          <div class="menu" id="nav-menu">
+            <a href="#servicios">Servicios</a>
+            <a href="#cotizador">Cotizador</a>
+            <a href="#portafolio">Portafolio</a>
+            <a href="#por-que-duoclick">¿Por qué nosotros?</a>
+            <a href="#precios">Planes</a>
+            <a href="#contacto" class="btn btn-nav-cta">
+              <span>Hablemos</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <!-- Botón menú móvil -->
+          <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
         </div>
-      </div>
+      </nav>
     </header>
 
-    <!-- WHY CHOOSE US - Scroll Horizontal -->
-    <div class="scroll-container">
-      <section class="scroll-cards">
-        <div class="cards-track">
-          <article class="card">
-            <img
-              src="./assets/images/crecimiento.webp"
-              alt="Crecimiento"
-              loading="lazy"
-              decoding="async"
-            />
-            <h3>Crecimiento</h3>
-            <p>
-              Impulsa tu negocio con soluciones digitales modernas y rápidas.
-            </p>
-            <span class="stat">+500 proyectos</span>
-          </article>
+    <main>
+      <!-- HERO SECTION -->
+      <section class="hero container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="pill-badge reveal">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+              <span>Software & Web de Próxima Generación</span>
+            </div>
 
-          <article class="card">
-            <img
-              src="./assets/images/velocidad.webp"
-              alt="Velocidad"
-              loading="lazy"
-              decoding="async"
-            />
-            <h3>Velocidad</h3>
-            <p>
-              Entregamos sitios en días, no en meses. Con optimización SEO real.
-            </p>
-            <span class="stat">Entrega en 7 días</span>
-          </article>
+            <h1 class="headline reveal">
+              Desarrollamos <br />
+              <span class="accent-gradient" id="typed-text">Páginas Web</span><br />
+              que multiplican tus ventas
+            </h1>
 
-          <article class="card">
-            <img
-              src="./assets/images/seguridad.webp"
-              alt="Seguridad"
-              loading="lazy"
-              decoding="async"
-            />
-            <h3>Seguridad</h3>
-            <p>
-              Buenas prácticas de desarrollo, datos protegidos y confianza
-              online.
+            <p class="sub reveal">
+              Creamos experiencias digitales ultrarrápidas, <strong>software inteligente a medida</strong> y <strong>automatizaciones</strong> que capturan clientes y optimizan tu operativa 24/7.
             </p>
-            <span class="stat">99.9% uptime</span>
-          </article>
 
-          <article class="card">
-            <img
-              src="./assets/images/adaptabilidad.webp"
-              alt="Adaptabilidad"
-              loading="lazy"
-              decoding="async"
-            />
-            <h3>Adaptabilidad</h3>
-            <p>Diseños 100% responsive, listos para cualquier dispositivo.</p>
-            <span class="stat">Multiplataforma</span>
-          </article>
+            <div class="hero-actions reveal">
+              <a class="btn btn-primary-glow" href="#cotizador">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                <span>Cotizar Proyecto</span>
+              </a>
+              <a class="btn btn-secondary-glass" href="#portafolio">
+                <span>Ver Proyectos</span>
+              </a>
+            </div>
 
-          <article class="card">
-            <img
-              src="./assets/images/acompanamiento.webp"
-              alt="Acompañamiento"
-              loading="lazy"
-              decoding="async"
-            />
-            <h3>Acompañamiento</h3>
-            <p>
-              Soporte continuo y mejoras para evolucionar junto a tu negocio.
-            </p>
-            <span class="stat">24/7 soporte</span>
-          </article>
+            <div class="hero-stats-bar reveal">
+              <div class="stat-item">
+                <strong class="counter" data-target="50">+0</strong>
+                <span>Proyectos Lanzados</span>
+              </div>
+              <div class="stat-divider"></div>
+              <div class="stat-item">
+                <strong class="counter" data-target="99">0</strong><span class="counter-unit">.8%</span>
+                <span>Clientes Satisfechos</span>
+              </div>
+              <div class="stat-divider"></div>
+              <div class="stat-item">
+                <strong class="counter" data-target="7">0</strong><span class="counter-unit"> días</span>
+                <span>Entrega Promedio</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Visual con Efecto 3D Tilt y Badges Flotantes -->
+          <div class="hero-visual reveal">
+            <div class="tilt-wrapper" id="hero-tilt">
+              <div class="visual-glow"></div>
+              <div class="dashboard-card">
+                <div class="card-header-bar">
+                  <div class="window-dots">
+                    <span class="dot dot-red"></span>
+                    <span class="dot dot-yellow"></span>
+                    <span class="dot dot-green"></span>
+                  </div>
+                  <span class="window-title">duoclick-core // live-metrics.app</span>
+                </div>
+                <picture>
+                  <source srcset="./assets/mockup-dashboard.avif" type="image/avif" />
+                  <source srcset="./assets/mockup-dashboard.webp" type="image/webp" />
+                  <img
+                    src="./assets/mockup-dashboard.png"
+                    alt="Plataforma de Software Duoclick"
+                    decoding="async"
+                    loading="eager"
+                  />
+                </picture>
+              </div>
+
+              <!-- Floating Badges Tech -->
+              <div class="floating-badge badge-top-right">
+                <div class="badge-icon-wrap bg-green">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+                </div>
+                <div>
+                  <small>Conversión Web</small>
+                  <strong>+180% Leads</strong>
+                </div>
+              </div>
+
+              <div class="floating-badge badge-bottom-left">
+                <div class="badge-icon-wrap bg-rose">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h.01M15 9h.01M9 15h6M12 2v2M2 12h2M20 12h2"/></svg>
+                </div>
+                <div>
+                  <small>Automatización 24/7</small>
+                  <strong>Sistema Activo</strong>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
-    </div>
 
-    <!-- HERO PARALLAX -->
-    <section class="hero-parallax">
-      <h1>Soluciones digitales <span class="accent">a un click</span></h1>
-    </section>
+      <!-- TECH MARQUEE (Logos / Stack de Tecnologías con SVGs Profesionales) -->
+      <section class="tech-marquee-section">
+        <div class="marquee-label">Tecnología de punta con la que construimos tu solución:</div>
+        <div class="marquee-track">
+          <div class="marquee-content">
+            <span class="tech-tag">
+              <svg class="tech-svg" width="16" height="16" viewBox="-11.5 -10.23 23 20.46" fill="none"><circle cx="0" cy="0" r="2.05" fill="#61dafb"/><g stroke="#61dafb" stroke-width="1"><ellipse rx="11" ry="4.2"/><ellipse rx="11" ry="4.2" transform="rotate(60)"/><ellipse rx="11" ry="4.2" transform="rotate(120)"/></g></svg>
+              React / Next.js
+            </span>
+            <span class="tech-tag">
+              <svg class="tech-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="m12 2 9 5.2v10.4l-9 5.2-9-5.2V7.2L12 2Z"/><path d="m12 22V12"/></svg>
+              Node.js / Express
+            </span>
+            <span class="tech-tag">
+              <svg class="tech-svg" width="16" height="16" viewBox="0 0 24 24" fill="#25d366"><path d="M16.2 13.6c-.2-.1-1.3-.7-1.5-.8-.2-.1-.3-.1-.5.1-.1.2-.6.8-.7.9-.1.1-.3.1-.5 0-.2-.1-.9-.3-1.7-1.1-.6-.6-1.1-1.3-1.2-1.5-.1-.2 0-.3.1-.4.1-.1.2-.3.3-.4.1-.1.1-.2.2-.3.1-.1.1-.2.2-.3.1-.1.1-.2 0-.4 0-.1-.5-1.2-.7-1.6-.2-.4-.4-.3-.5-.3h-.4c-.1 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 3.9 3.4.5.2.9.3 1.2.4.5.1 1 .1 1.3.1.4 0 1.3-.3 1.5-.7.2-.4.2-.9.2-1 0-.1-.1-.1-.3-.2zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.4 5l-1 3.7 3.8-1C7.5 20.5 9.7 21 12 21c5.5 0 10-4.5 10-9.9C22 6.5 17.5 2 12 2zm0 17.5c-2.1 0-4-.6-5.6-1.7l-.4-.2-2.3.6.6-2.2-.2-.4C3 14 2.5 13 2.5 12 2.5 7.9 6 4.5 10 4.5S17.5 7.9 17.5 12 14 19.5 12 19.5z"/></svg>
+              WhatsApp API
+            </span>
+            <span class="tech-tag">
+              <svg class="tech-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              Python & Scripts
+            </span>
+            <span class="tech-tag">
+              <svg class="tech-svg" width="16" height="16" viewBox="0 0 24 24" fill="#38bdf8"><path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.335 6.182 14.974 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.335 13.382 8.974 12 6.001 12z"/></svg>
+              Tailwind CSS
+            </span>
+            <span class="tech-tag">
+              <svg class="tech-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+              PostgreSQL / DB
+            </span>
+            <span class="tech-tag">
+              <svg class="tech-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+              Pasarelas de Pago
+            </span>
+            <span class="tech-tag">
+              <svg class="tech-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
+              Cloud & Edge Hosting
+            </span>
+          </div>
+          <!-- Duplicado para loop infinito -->
+          <div class="marquee-content" aria-hidden="true">
+            <span class="tech-tag">
+              <svg class="tech-svg" width="16" height="16" viewBox="-11.5 -10.23 23 20.46" fill="none"><circle cx="0" cy="0" r="2.05" fill="#61dafb"/><g stroke="#61dafb" stroke-width="1"><ellipse rx="11" ry="4.2"/><ellipse rx="11" ry="4.2" transform="rotate(60)"/><ellipse rx="11" ry="4.2" transform="rotate(120)"/></g></svg>
+              React / Next.js
+            </span>
+            <span class="tech-tag">
+              <svg class="tech-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="m12 2 9 5.2v10.4l-9 5.2-9-5.2V7.2L12 2Z"/><path d="m12 22V12"/></svg>
+              Node.js / Express
+            </span>
+            <span class="tech-tag">
+              <svg class="tech-svg" width="16" height="16" viewBox="0 0 24 24" fill="#25d366"><path d="M16.2 13.6c-.2-.1-1.3-.7-1.5-.8-.2-.1-.3-.1-.5.1-.1.2-.6.8-.7.9-.1.1-.3.1-.5 0-.2-.1-.9-.3-1.7-1.1-.6-.6-1.1-1.3-1.2-1.5-.1-.2 0-.3.1-.4.1-.1.2-.3.3-.4.1-.1.1-.2.2-.3.1-.1.1-.2.2-.3.1-.1.1-.2 0-.4 0-.1-.5-1.2-.7-1.6-.2-.4-.4-.3-.5-.3h-.4c-.1 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 3.9 3.4.5.2.9.3 1.2.4.5.1 1 .1 1.3.1.4 0 1.3-.3 1.5-.7.2-.4.2-.9.2-1 0-.1-.1-.1-.3-.2zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.4 5l-1 3.7 3.8-1C7.5 20.5 9.7 21 12 21c5.5 0 10-4.5 10-9.9C22 6.5 17.5 2 12 2zm0 17.5c-2.1 0-4-.6-5.6-1.7l-.4-.2-2.3.6.6-2.2-.2-.4C3 14 2.5 13 2.5 12 2.5 7.9 6 4.5 10 4.5S17.5 7.9 17.5 12 14 19.5 12 19.5z"/></svg>
+              WhatsApp API
+            </span>
+            <span class="tech-tag">
+              <svg class="tech-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              Python & Scripts
+            </span>
+            <span class="tech-tag">
+              <svg class="tech-svg" width="16" height="16" viewBox="0 0 24 24" fill="#38bdf8"><path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.335 6.182 14.974 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.335 13.382 8.974 12 6.001 12z"/></svg>
+              Tailwind CSS
+            </span>
+            <span class="tech-tag">
+              <svg class="tech-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+              PostgreSQL / DB
+            </span>
+            <span class="tech-tag">
+              <svg class="tech-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+              Pasarelas de Pago
+            </span>
+            <span class="tech-tag">
+              <svg class="tech-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
+              Cloud & Edge Hosting
+            </span>
+          </div>
+        </div>
+      </section>
 
-    <!-- SERVICES -->
-    <section id="servicios" class="container">
-      <h2 class="section-title reveal">Servicios que impulsan tu negocio</h2>
-      <p class="section-sub reveal">
-        Selecciona lo que necesitas hoy. Escala cuando quieras.
-      </p>
-      <div class="services">
-        <article class="card reveal">
-          <span class="badge">Web</span>
-          <h3>Landing pages</h3>
-          <p>Diseño orientado a resultados, velocidad y SEO técnico.</p>
-        </article>
-        <article class="card reveal">
-          <span class="badge">Catálogo</span>
-          <h3>E-commerce ligero</h3>
-          <p>Muestra productos y vende por WhatsApp o pasarela.</p>
-        </article>
-        <article class="card reveal">
-          <span class="badge">Reservas</span>
-          <h3>Con WhatsApp</h3>
-          <p>Agenda y recordatorios automáticos.</p>
-        </article>
-        <article class="card reveal">
-          <span class="badge">Automatización</span>
-          <h3>Bots y flujos</h3>
-          <p>Automatiza leads, reportes y más.</p>
-        </article>
-        <article class="card reveal">
-          <span class="badge">Software</span>
-          <h3>Sistemas a medida</h3>
-          <p>
-            Aplicaciones web empresariales, paneles de control y ERPs ligeros.
-          </p>
-        </article>
-        <article class="card reveal">
-          <span class="badge">Integraciones</span>
-          <h3>APIs y Conectores</h3>
-          <p>
-            Conecta tu web o sistema con CRM, facturación o cualquier API
-            externa.
-          </p>
-        </article>
-        <article class="card reveal">
-          <span class="badge">Data</span>
-          <h3>Dashboards</h3>
-          <p>
-            Visualización de métricas en tiempo real para tomar mejores
-            decisiones.
-          </p>
-        </article>
+      <!-- SECCIÓN: BENEFICIOS CLAVE (VENTAJAS COMPETITIVAS) -->
+      <section class="why-us-section">
+        <div class="container">
+          <div class="section-header text-center reveal">
+            <span class="section-badge">Ventajas Competitivas</span>
+            <h2 class="section-title">Por qué las empresas eligen <span class="accent-gradient">Duoclick</span></h2>
+            <p class="section-sub">Eliminamos la complejidad técnica para que tú te enfoques en vender.</p>
+          </div>
+
+          <div class="why-grid">
+            <article class="why-card reveal">
+              <div class="card-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              </div>
+              <h3>Velocidad Récord</h3>
+              <p>Entregamos proyectos funcionales en días, no en meses. Metodología ágil sin reuniones innecesarias.</p>
+              <div class="card-footer-pill">Entrega en 7 días</div>
+            </article>
+
+            <article class="why-card highlight-border reveal">
+              <div class="card-icon-box accent-bg">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+              </div>
+              <h3>Código Limpio y Seguro</h3>
+              <p>Desarrollo a medida sin plantillas lentas. Páginas con carga instantánea y optimización SEO real.</p>
+              <div class="card-footer-pill">99.9% Uptime</div>
+            </article>
+
+            <article class="why-card reveal">
+              <div class="card-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+              </div>
+              <h3>100% Adaptable y Móvil</h3>
+              <p>Experiencias ultra responsivas diseñadas para convertir usuarios que navegan desde teléfonos móviles.</p>
+              <div class="card-footer-pill">Mobile-First UI</div>
+            </article>
+
+            <article class="why-card reveal">
+              <div class="card-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <h3>Acompañamiento Continuo</h3>
+              <p>No te dejamos solo tras la entrega. Mantenimiento, actualizaciones y soporte técnico directo 1 a 1.</p>
+              <div class="card-footer-pill">Soporte 1 a 1</div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN: SERVICIOS CON ICONOS SVG MODERNOS -->
+      <section id="servicios" class="services-section">
+        <div class="container">
+          <div class="section-header text-center reveal">
+            <span class="section-badge">Nuestras Soluciones</span>
+            <h2 class="section-title">Servicios creados para <span class="accent-gradient">hacer crecer</span> tu empresa</h2>
+            <p class="section-sub">Soluciones completas desde presencia web hasta sistemas empresariales.</p>
+          </div>
+
+          <div class="services-grid">
+            <!-- Servicio 1 -->
+            <div class="service-card reveal">
+              <div class="service-tag">Más Solicitado</div>
+              <div class="service-icon-box icon-cyan">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+              </div>
+              <h3>Landing Pages & Sitios Web</h3>
+              <p>Páginas de alto impacto optimizadas para convertir visitantes en clientes potenciales de inmediato.</p>
+              <ul class="service-perks">
+                <li><span>✔</span> Diseño moderno & ultra rápido</li>
+                <li><span>✔</span> SEO técnico para Google</li>
+                <li><span>✔</span> Botones de contacto directos</li>
+              </ul>
+              <a href="#cotizador" class="service-link">Configurar proyecto →</a>
+            </div>
+
+            <!-- Servicio 2 -->
+            <div class="service-card reveal">
+              <div class="service-tag">Alta Conversión</div>
+              <div class="service-icon-box icon-rose">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="4" rx="2"/><path d="M9 9h.01M15 9h.01M9 15h6M12 2v2M2 12h2M20 12h2"/></svg>
+              </div>
+              <h3>Bots & Automatización WhatsApp</h3>
+              <p>Automatiza respuestas frecuentes, agenda citas, envía recordatorios y guarda prospectos en tu CRM o Excel.</p>
+              <ul class="service-perks">
+                <li><span>✔</span> Atención automática 24/7</li>
+                <li><span>✔</span> Conexión con Google Sheets</li>
+                <li><span>✔</span> Flujos conversacionales inteligentes</li>
+              </ul>
+              <a href="#cotizador" class="service-link">Configurar bot →</a>
+            </div>
+
+            <!-- Servicio 3 -->
+            <div class="service-card reveal">
+              <div class="service-tag">E-Commerce</div>
+              <div class="service-icon-box icon-purple">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+              </div>
+              <h3>Catálogos & Tiendas Online</h3>
+              <p>Muestra tus productos y recibe pedidos directamente a tu WhatsApp o intégralo con pasarelas de pago.</p>
+              <ul class="service-perks">
+                <li><span>✔</span> Carrito y checkout fluido</li>
+                <li><span>✔</span> Panel para actualizar productos</li>
+                <li><span>✔</span> Pagos con tarjeta y transferencias</li>
+              </ul>
+              <a href="#cotizador" class="service-link">Configurar tienda →</a>
+            </div>
+
+            <!-- Servicio 4 -->
+            <div class="service-card reveal">
+              <div class="service-tag">Empresarial</div>
+              <div class="service-icon-box icon-amber">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/><circle cx="19" cy="9" r="1.5" fill="currentColor"/></svg>
+              </div>
+              <h3>Software a Medida & Dashboards</h3>
+              <p>Sistemas internos, paneles de control empresarial y plataformas web creadas para resolver tu flujo específico.</p>
+              <ul class="service-perks">
+                <li><span>✔</span> Control de inventarios y usuarios</li>
+                <li><span>✔</span> Visualización de métricas en vivo</li>
+                <li><span>✔</span> Integración con APIs externas</li>
+              </ul>
+              <a href="#cotizador" class="service-link">Configurar software →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- HERRAMIENTA CLAVE: COTIZADOR INTERACTIVO EXPRESS -->
+      <section id="cotizador" class="estimator-section">
+        <div class="container">
+          <div class="estimator-card reveal">
+            <div class="estimator-header text-center">
+              <div class="pill-badge mb-2">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                <span>Cotizador Express 24/7</span>
+              </div>
+              <h2 class="section-title">Calcula el alcance de tu <span class="accent-gradient">próximo proyecto</span></h2>
+              <p class="section-sub">Selecciona las opciones que necesitas y obtén un estimado instantáneo para enviar por WhatsApp.</p>
+            </div>
+
+            <div class="estimator-body">
+              <!-- Paso 1: Tipo de Proyecto -->
+              <div class="estimator-step">
+                <label class="step-label">1. ¿Qué tipo de solución necesitas?</label>
+                <div class="options-grid" id="project-type-options">
+                  <button type="button" class="option-btn active" data-type="Landing Page" data-time="3-5 días" data-base="Básica">
+                    <div class="opt-icon-box">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg>
+                    </div>
+                    <strong>Landing Page</strong>
+                    <small>1 página de alta conversión</small>
+                  </button>
+
+                  <button type="button" class="option-btn" data-type="Sitio Web Profesional" data-time="5-8 días" data-base="Completo">
+                    <div class="opt-icon-box">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M8 10h.01"/><path d="M16 10h.01"/><path d="M8 14h.01"/><path d="M16 14h.01"/></svg>
+                    </div>
+                    <strong>Sitio Web Pro</strong>
+                    <small>Hasta 5 secciones completas</small>
+                  </button>
+
+                  <button type="button" class="option-btn" data-type="Catálogo / E-commerce" data-time="7-12 días" data-base="Comercial">
+                    <div class="opt-icon-box">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+                    </div>
+                    <strong>E-Commerce / Tienda</strong>
+                    <small>Productos y carrito de compras</small>
+                  </button>
+
+                  <button type="button" class="option-btn" data-type="Bot WhatsApp & Automatización" data-time="4-7 días" data-base="Automatizado">
+                    <div class="opt-icon-box">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="16" height="16" x="4" y="4" rx="2"/><path d="M9 9h.01M15 9h.01M9 15h6M12 2v2M2 12h2M20 12h2"/></svg>
+                    </div>
+                    <strong>Bot de WhatsApp</strong>
+                    <small>Respuestas automáticas & CRM</small>
+                  </button>
+
+                  <button type="button" class="option-btn" data-type="Software a Medida" data-time="10-20 días" data-base="Empresarial">
+                    <div class="opt-icon-box">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    </div>
+                    <strong>Software a Medida</strong>
+                    <small>Panel de gestión / Dashboard</small>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Paso 2: Funcionalidades Adicionales -->
+              <div class="estimator-step">
+                <label class="step-label">2. Selecciona extras y funcionalidades clave:</label>
+                <div class="chips-grid" id="addons-options">
+                  <label class="chip-label">
+                    <input type="checkbox" value="Integración WhatsApp Pro" checked />
+                    <span class="chip-text">+ WhatsApp Directo</span>
+                  </label>
+                  <label class="chip-label">
+                    <input type="checkbox" value="Pasarela de Pagos Online" />
+                    <span class="chip-text">+ Pasarela de Pagos (Stripe/Wompi)</span>
+                  </label>
+                  <label class="chip-label">
+                    <input type="checkbox" value="SEO Técnico y Posicionamiento" checked />
+                    <span class="chip-text">+ Optimización SEO Google</span>
+                  </label>
+                  <label class="chip-label">
+                    <input type="checkbox" value="Conexión Google Sheets / Base de Datos" />
+                    <span class="chip-text">+ Conexión a Base de Datos/Sheets</span>
+                  </label>
+                  <label class="chip-label">
+                    <input type="checkbox" value="Diseño Multi-idioma (ES/EN)" />
+                    <span class="chip-text">+ Multi-idioma (ES/EN)</span>
+                  </label>
+                  <label class="chip-label">
+                    <input type="checkbox" value="Hosting & Dominio Configurado" checked />
+                    <span class="chip-text">+ Hosting & Dominio Configurado</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Resumen Estimado -->
+              <div class="estimator-summary">
+                <div class="summary-info">
+                  <div class="summary-item">
+                    <span class="summary-label">Tipo seleccionado:</span>
+                    <strong id="summary-project-type">Landing Page</strong>
+                  </div>
+                  <div class="summary-item">
+                    <span class="summary-label">Tiempo estimado de entrega:</span>
+                    <strong id="summary-time" class="accent-text">3-5 días hábiles</strong>
+                  </div>
+                </div>
+
+                <button id="send-estimate-btn" class="btn btn-whatsapp-glow">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16.2 13.6c-.2-.1-1.3-.7-1.5-.8-.2-.1-.3-.1-.5.1-.1.2-.6.8-.7.9-.1.1-.3.1-.5 0-.2-.1-.9-.3-1.7-1.1-.6-.6-1.1-1.3-1.2-1.5-.1-.2 0-.3.1-.4.1-.1.2-.3.3-.4.1-.1.1-.2.2-.3.1-.1.1-.2.2-.3.1-.1.1-.2 0-.4 0-.1-.5-1.2-.7-1.6-.2-.4-.4-.3-.5-.3h-.4c-.1 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 3.9 3.4.5.2.9.3 1.2.4.5.1 1 .1 1.3.1.4 0 1.3-.3 1.5-.7.2-.4.2-.9.2-1 0-.1-.1-.1-.3-.2zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.4 5l-1 3.7 3.8-1C7.5 20.5 9.7 21 12 21c5.5 0 10-4.5 10-9.9C22 6.5 17.5 2 12 2zm0 17.5c-2.1 0-4-.6-5.6-1.7l-.4-.2-2.3.6.6-2.2-.2-.4C3 14 2.5 13 2.5 12 2.5 7.9 6 4.5 10 4.5S17.5 7.9 17.5 12 14 19.5 12 19.5z"/></svg>
+                  <span>Enviar Cotización a WhatsApp</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PORTAFOLIO & CASOS DE ÉXITO CON FILTROS -->
+      <section id="portafolio" class="portfolio-section">
+        <div class="container">
+          <div class="section-header text-center reveal">
+            <span class="section-badge">Casos de Éxito</span>
+            <h2 class="section-title">Resultados reales para <span class="accent-gradient">clientes reales</span></h2>
+            <p class="section-sub">Una muestra de las plataformas, sitios y soluciones que hemos construido.</p>
+          </div>
+
+          <!-- Filtros -->
+          <div class="portfolio-filter-tabs reveal">
+            <button class="filter-tab active" data-filter="all">Todos</button>
+            <button class="filter-tab" data-filter="web">Web & Landing</button>
+            <button class="filter-tab" data-filter="software">Software & SaaS</button>
+            <button class="filter-tab" data-filter="bots">Bots & Automatización</button>
+          </div>
+
+          <div class="portfolio-grid">
+            <!-- Proyecto 1: Dashboard SaaS -->
+            <article class="portfolio-card reveal" data-category="software">
+              <div class="portfolio-visual">
+                <div class="mockup-screen bg-grad-purple">
+                  <div class="screen-header">
+                    <span class="dot-sm"></span><span class="dot-sm"></span><span class="dot-sm"></span>
+                  </div>
+                  <div class="screen-content">
+                    <div class="chart-preview">
+                      <div class="bar-col" style="height: 60%"></div>
+                      <div class="bar-col" style="height: 85%"></div>
+                      <div class="bar-col" style="height: 100%"></div>
+                      <div class="bar-col" style="height: 75%"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="metric-pill">+215% Eficiencia Operativa</div>
+              </div>
+              <div class="portfolio-info">
+                <div class="card-tags">
+                  <span class="mini-tag">Software SaaS</span>
+                  <span class="mini-tag">Dashboard</span>
+                </div>
+                <h3>Panel de Control & Gestión ERP</h3>
+                <p>Plataforma para control de métricas de ventas, inventario y facturación en tiempo real.</p>
+              </div>
+            </article>
+
+            <!-- Proyecto 2: Landing Page Alta Conversión -->
+            <article class="portfolio-card reveal" data-category="web">
+              <div class="portfolio-visual">
+                <div class="mockup-screen bg-grad-rose">
+                  <div class="screen-header">
+                    <span class="dot-sm"></span><span class="dot-sm"></span><span class="dot-sm"></span>
+                  </div>
+                  <div class="screen-content">
+                    <div class="hero-wireframe">
+                      <div class="wire-title"></div>
+                      <div class="wire-sub"></div>
+                      <div class="wire-btn"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="metric-pill">0.7s Tiempo de Carga</div>
+              </div>
+              <div class="portfolio-info">
+                <div class="card-tags">
+                  <span class="mini-tag">Landing Page</span>
+                  <span class="mini-tag">Next.js / SEO</span>
+                </div>
+                <h3>Web Corporativa Fintech</h3>
+                <p>Sitio web optimizado para captación masiva de leads con integración directa a WhatsApp CRM.</p>
+              </div>
+            </article>
+
+            <!-- Proyecto 3: Bot WhatsApp -->
+            <article class="portfolio-card reveal" data-category="bots">
+              <div class="portfolio-visual">
+                <div class="mockup-screen bg-grad-green">
+                  <div class="screen-header">
+                    <span class="dot-sm"></span><span class="dot-sm"></span><span class="dot-sm"></span>
+                  </div>
+                  <div class="screen-content">
+                    <div class="chat-bubbles-preview">
+                      <div class="bubble left">¡Hola! ¿Cómo agendo cita?</div>
+                      <div class="bubble right">¡Listo! Cita confirmada para hoy 3:00 PM ✅</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="metric-pill">1,500+ Citas Automatizadas</div>
+              </div>
+              <div class="portfolio-info">
+                <div class="card-tags">
+                  <span class="mini-tag">WhatsApp API</span>
+                  <span class="mini-tag">Automatización</span>
+                </div>
+                <h3>Bot de Agendamiento para Clínicas</h3>
+                <p>Flujo automatizado 24/7 para registro de pacientes y recordatorios automáticos por WhatsApp.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- TABLA COMPARATIVA: ¿POR QUÉ DUOCLICK? -->
+      <section id="por-que-duoclick" class="comparison-section">
+        <div class="container">
+          <div class="section-header text-center reveal">
+            <span class="section-badge">La Diferencia Duoclick</span>
+            <h2 class="section-title">Por qué somos la mejor opción para tu negocio</h2>
+            <p class="section-sub">Compara la experiencia y velocidad que ofrecemos frente a métodos tradicionales.</p>
+          </div>
+
+          <div class="comparison-table-wrapper reveal">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Beneficio / Característica</th>
+                  <th class="highlight-col">⚡ Duoclick</th>
+                  <th>Agencias Tradicionales</th>
+                  <th>Plantillas / DIY</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Tiempo de entrega</strong></td>
+                  <td class="highlight-col text-green"><strong>Días (3 a 7 días)</strong></td>
+                  <td>2 a 4 meses</td>
+                  <td>Semanas de prueba y error</td>
+                </tr>
+                <tr>
+                  <td><strong>Código & Velocidad</strong></td>
+                  <td class="highlight-col text-green"><strong>Ultrarrápido y limpio</strong></td>
+                  <td>Bueno, pero sobrecargado</td>
+                  <td>Lento y pesado</td>
+                </tr>
+                <tr>
+                  <td><strong>Integración WhatsApp & Bots</strong></td>
+                  <td class="highlight-col text-green"><strong>Especialidad nativa</strong></td>
+                  <td>Costo extra elevado</td>
+                  <td>Plugins inestables</td>
+                </tr>
+                <tr>
+                  <td><strong>Soporte y Comunicación</strong></td>
+                  <td class="highlight-col text-green"><strong>Directo 1 a 1 por WhatsApp</strong></td>
+                  <td>Tickets lentos por email</td>
+                  <td>Sin soporte</td>
+                </tr>
+                <tr>
+                  <td><strong>Transparencia de Costos</strong></td>
+                  <td class="highlight-col text-green"><strong>Precios claros, sin sorpresas</strong></td>
+                  <td>Presupuestos inflados</td>
+                  <td>Suscripciones ocultas</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROCESO ÁGIL DE 4 PASOS -->
+      <section class="process-section">
+        <div class="container">
+          <div class="section-header text-center reveal">
+            <span class="section-badge">Paso a Paso</span>
+            <h2 class="section-title">De la idea a la realidad en 4 pasos sencillos</h2>
+            <p class="section-sub">Un proceso probado, transparente y sin complicaciones.</p>
+          </div>
+
+          <div class="steps-grid">
+            <div class="step-card reveal">
+              <div class="step-number">01</div>
+              <h3>Diagnóstico & Brief</h3>
+              <p>Escuchamos tu objetivo de negocio y definimos las funciones exactas que necesitas.</p>
+            </div>
+            <div class="step-card reveal">
+              <div class="step-number">02</div>
+              <h3>Diseño UI / Prototipo</h3>
+              <p>Estructuramos la experiencia visual y los flujos para que apruebes el look & feel.</p>
+            </div>
+            <div class="step-card reveal">
+              <div class="step-number">03</div>
+              <h3>Desarrollo Ágil</h3>
+              <p>Programamos tu solución con código limpio, integraciones y seguridad de primer nivel.</p>
+            </div>
+            <div class="step-card reveal">
+              <div class="step-number">04</div>
+              <h3>Lanzamiento & Soporte</h3>
+              <p>Publicamos en producción, configuramos tu dominio y te enseñamos a gestionar todo.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PLANES Y PRECIOS -->
+      <section id="precios" class="pricing-section">
+        <div class="container">
+          <div class="section-header text-center reveal">
+            <span class="section-badge">Inversión Transparente</span>
+            <h2 class="section-title">Planes diseñados para escalar</h2>
+            <p class="section-sub">Elige el plan ideal según la etapa de tu empresa. Todos son 100% ampliables.</p>
+          </div>
+
+          <div class="pricing-grid">
+            <!-- Plan 1 -->
+            <div class="pricing-card reveal">
+              <div class="plan-header">
+                <h3>Landing Express</h3>
+                <p class="plan-desc">Ideal para lanzar campañas o probar un nuevo producto con alto impacto.</p>
+              </div>
+              <ul class="plan-features">
+                <li><span>✔</span> 1 Página de alto impacto</li>
+                <li><span>✔</span> 100% adaptable a móviles</li>
+                <li><span>✔</span> Botón flotante de WhatsApp</li>
+                <li><span>✔</span> Entrega en 3 a 5 días</li>
+              </ul>
+              <a href="#contacto" class="btn btn-outline-plan">Solicitar Landing</a>
+            </div>
+
+            <!-- Plan 2 (Popular) -->
+            <div class="pricing-card popular-card reveal">
+              <div class="popular-tag">Más Elegido 🔥</div>
+              <div class="plan-header">
+                <h3>Sitio Web Pro</h3>
+                <p class="plan-desc">La presencia corporativa completa para consolidar autoridad y ventas.</p>
+              </div>
+              <ul class="plan-features">
+                <li><span>✔</span> Hasta 5 secciones personalizadas</li>
+                <li><span>✔</span> Optimización SEO técnico en Google</li>
+                <li><span>✔</span> Formulario conectado a WhatsApp/Email</li>
+                <li><span>✔</span> Hosting + Dominio por 1 año</li>
+                <li><span>✔</span> Soporte prioritario</li>
+              </ul>
+              <a href="#contacto" class="btn btn-primary-glow w-100">Elegir Sitio Pro</a>
+            </div>
+
+            <!-- Plan 3 -->
+            <div class="pricing-card reveal">
+              <div class="plan-header">
+                <h3>Automatización Bot</h3>
+                <p class="plan-desc">Ahorra tiempo y no pierdas ni un solo cliente potencial en WhatsApp.</p>
+              </div>
+              <ul class="plan-features">
+                <li><span>✔</span> Bot de respuestas automáticas 24/7</li>
+                <li><span>✔</span> Captura de leads a Google Sheets / CRM</li>
+                <li><span>✔</span> Flujo de agendamiento o menú</li>
+                <li><span>✔</span> Capacitación y soporte</li>
+              </ul>
+              <a href="#contacto" class="btn btn-outline-plan">Automatizar Negocio</a>
+            </div>
+
+            <!-- Plan 4 -->
+            <div class="pricing-card reveal">
+              <div class="plan-header">
+                <h3>Software a Medida</h3>
+                <p class="plan-desc">Paneles administrativos, dashboards de métricas y sistemas internos.</p>
+              </div>
+              <ul class="plan-features">
+                <li><span>✔</span> Panel administrativo a medida</li>
+                <li><span>✔</span> Conexión con bases de datos y APIs</li>
+                <li><span>✔</span> Roles y permisos de usuarios</li>
+                <li><span>✔</span> Seguridad y backups continuos</li>
+              </ul>
+              <a href="#contacto" class="btn btn-outline-plan">Cotizar Software</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONIOS CON SOCIAL PROOF & ESTRELLAS SVG -->
+      <section class="testimonials-section">
+        <div class="container">
+          <div class="section-header text-center reveal">
+            <span class="section-badge">Testimonios</span>
+            <h2 class="section-title">Lo que dicen quienes ya trabajan con nosotros</h2>
+          </div>
+
+          <div class="testimonials-grid">
+            <div class="testimonial-card reveal">
+              <div class="stars">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <p class="quote">“Gracias a la web y la automatización de WhatsApp que nos creó Duoclick, duplicamos las consultas de clientes en menos de dos semanas. La rapidez de entrega fue increíble.”</p>
+              <div class="author-info">
+                <div class="avatar-circle">ML</div>
+                <div>
+                  <strong>María López</strong>
+                  <span>Directora, Nova Studio</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card reveal">
+              <div class="stars">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <p class="quote">“Desarrollaron el panel interno para nuestro gimnasio y el bot de reservas. Nos ahorran al menos 3 horas diarias de trabajo administrativo. 100% recomendados.”</p>
+              <div class="author-info">
+                <div class="avatar-circle">AT</div>
+                <div>
+                  <strong>Andrés Torres</strong>
+                  <span>Fundador, FitPlus Training</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACTO DIRECTO -->
+      <section id="contacto" class="contact-section">
+        <div class="container">
+          <div class="contact-card-box reveal">
+            <div class="contact-header text-center">
+              <span class="section-badge">Iniciemos tu Proyecto</span>
+              <h2 class="section-title">Cuéntanos tu idea</h2>
+              <p class="section-sub">Te enviamos una propuesta detallada en menos de 24 horas.</p>
+            </div>
+
+            <form id="wa-form" class="modern-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Nombre completo *</label>
+                  <input type="text" id="name" placeholder="Ej. Carlos Mendoza" required />
+                </div>
+                <div class="form-group">
+                  <label for="email">Correo electrónico *</label>
+                  <input type="email" id="email" placeholder="carlos@tuempresa.com" required />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="phone">Teléfono / WhatsApp</label>
+                  <input type="tel" id="phone" placeholder="+57 300 000 0000" />
+                </div>
+                <div class="form-group">
+                  <label for="service">Servicio de interés *</label>
+                  <select id="service" required>
+                    <option value="" disabled selected>Selecciona un servicio...</option>
+                    <option value="Landing Page Express">Landing Page Express</option>
+                    <option value="Sitio Web Profesional">Sitio Web Profesional</option>
+                    <option value="Tienda Online / E-commerce">Tienda Online / E-commerce</option>
+                    <option value="Bot de WhatsApp / Automatización">Bot de WhatsApp / Automatización</option>
+                    <option value="Software a Medida / Dashboard">Software a Medida / Dashboard</option>
+                    <option value="Otro Proyecto Personalizado">Otro Proyecto Personalizado</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Detalles de tu idea o negocio</label>
+                <textarea id="message" placeholder="Cuéntanos brevemente qué necesitas resolver o construir..." rows="4"></textarea>
+              </div>
+
+              <button class="btn btn-primary-glow btn-submit" type="submit">
+                <span>Enviar Solicitud a WhatsApp</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ ACCORDION -->
+      <section id="faq" class="faq-section">
+        <div class="container">
+          <div class="section-header text-center reveal">
+            <span class="section-badge">FAQ</span>
+            <h2 class="section-title">Preguntas frecuentes</h2>
+            <p class="section-sub">Resolvemos tus dudas más habituales de forma directa.</p>
+          </div>
+
+          <div class="faq-accordion-wrap reveal">
+            <details class="faq-item">
+              <summary>¿En cuánto tiempo estará listo mi proyecto?</summary>
+              <div class="faq-content">
+                <p>Una Landing Page o Bot básico se entrega habitualmente en <strong>3 a 5 días hábiles</strong>. Proyectos más grandes como sitios web completos o software a medida tardan entre 7 y 15 días según el alcance acordado.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>¿Cómo son las formas de pago?</summary>
+              <div class="faq-content">
+                <p>Trabajamos con un esquema transparente de <strong>50% al iniciar</strong> el proyecto y el <strong>50% restante al momento del lanzamiento</strong> una vez que revises y apruebes la solución completa.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>¿Incluye dominio y hosting?</summary>
+              <div class="faq-content">
+                <p>Sí, en nuestro plan <em>Sitio Web Pro</em> y en desarrollos integrales incluimos la configuración y alojamiento por 1 año. Si ya tienes dominio propio, nos encargamos de conectarlo sin costo adicional.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>¿Podré actualizar el contenido después?</summary>
+              <div class="faq-content">
+                <p>¡Por supuesto! Desarrollamos estructuras fáciles de actualizar y te brindamos una sesión de capacitación para que tengas total autonomía sobre tu plataforma.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container footer-container">
+        <div class="footer-brand-col">
+          <img src="assets/logo-duoclick.png" alt="Logo Duoclick" class="footer-logo" />
+          <p>Soluciones a un click. Desarrollo web, software inteligente y automatizaciones para empresas en crecimiento.</p>
+        </div>
+
+        <div class="footer-links-group">
+          <div class="footer-col">
+            <h4>Navegación</h4>
+            <a href="#servicios">Servicios</a>
+            <a href="#cotizador">Cotizador</a>
+            <a href="#portafolio">Portafolio</a>
+            <a href="#precios">Planes</a>
+          </div>
+          <div class="footer-col">
+            <h4>Comunidad</h4>
+            <a href="https://www.instagram.com/duoclick.tech" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://www.facebook.com/share/1JT6g8nLGf/" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://wa.me/573122882557" target="_blank" rel="noopener">WhatsApp Directo</a>
+          </div>
+        </div>
       </div>
-    </section>
 
-    <!-- AUTOMATION PARALLAX -->
-    <section class="hero-parallax automation">
-      <div class="container">
-        <h1>
-          Más que webs: <span class="accent">automatizamos</span> tus procesos
-        </h1>
-        <p>
-          Desde bots de WhatsApp hasta integraciones con sistemas internos.
-          Reducimos tareas repetitivas y escalamos tu negocio con software
-          inteligente.
-        </p>
-      </div>
-    </section>
-
-    <!-- PORTAFOLIO -->
-    <section id="portafolio" class="container">
-      <h2 class="section-title reveal">Nuestro trabajo</h2>
-      <p class="section-sub reveal">
-        Algunos proyectos y lo que dicen nuestros clientes.
-      </p>
-
-      <div class="portfolio">
-        <article
-          class="shot reveal"
-          style="
-            background-image: url(&quot;https://picsum.photos/600/400?random=1&quot;);
-          "
-        ></article>
-        <article
-          class="shot reveal"
-          style="
-            background-image: url(&quot;https://picsum.photos/600/400?random=2&quot;);
-          "
-        ></article>
-        <article
-          class="shot reveal"
-          style="
-            background-image: url(&quot;https://picsum.photos/600/400?random=3&quot;);
-          "
-        ></article>
-      </div>
-
-      <div class="testimonials">
-        <blockquote class="card reveal">
-          <p>
-            “Gracias a Duoclick nuestra página empezó a convertir clientes desde
-            la primera semana.”
-          </p>
-          <footer>— María López, Emprendedora</footer>
-        </blockquote>
-        <blockquote class="card reveal">
-          <p>
-            “Automatizamos reservas por WhatsApp y nos ahorramos horas de
-            gestión cada día.”
-          </p>
-          <footer>— Andrés Torres, Gimnasio FitPlus</footer>
-        </blockquote>
-      </div>
-    </section>
-
-    <!-- PROCESO -->
-    <section id="proceso" class="container">
-      <h2 class="section-title reveal">Nuestro proceso</h2>
-      <p class="section-sub reveal">
-        Así transformamos tu idea en un producto digital real.
-      </p>
-      <div class="steps">
-        <div class="step reveal">
-          <div class="num">1</div>
-          <h3>Brief</h3>
-          <p>Escuchamos tus necesidades y definimos objetivos claros.</p>
-        </div>
-        <div class="step reveal">
-          <div class="num">2</div>
-          <h3>Diseño</h3>
-          <p>Prototipamos y validamos la experiencia de usuario.</p>
-        </div>
-        <div class="step reveal">
-          <div class="num">3</div>
-          <h3>Desarrollo</h3>
-          <p>Código limpio, rápido y seguro listo para producción.</p>
-        </div>
-        <div class="step reveal">
-          <div class="num">4</div>
-          <h3>Lanzamiento</h3>
-          <p>Publicamos en la nube y optimizamos SEO desde el inicio.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- PLANES Y PRECIOS -->
-    <section id="precios" class="container">
-      <h2 class="section-title reveal">Planes pensados para ti</h2>
-      <p class="section-sub reveal">
-        Elige el que más se ajuste a tu negocio. Todos son escalables.
-      </p>
-      <div class="pricing">
-        <div class="plan reveal">
-          <h3>Landing Básica</h3>
-          <ul class="features">
-            <li>✔ 1 página de alto impacto</li>
-            <li>✔ Diseño responsive</li>
-            <li>✔ Integración WhatsApp</li>
-          </ul>
-          <a href="#contacto" class="btn btn-cta">Quiero este plan</a>
-        </div>
-        <div class="plan pop reveal">
-          <h3>Sitio Profesional</h3>
-          <ul class="features">
-            <li>✔ Hasta 5 secciones</li>
-            <li>✔ SEO técnico</li>
-            <li>✔ Hosting + dominio 1 año</li>
-          </ul>
-          <a href="#contacto" class="btn btn-cta">El más popular</a>
-        </div>
-        <div class="plan reveal">
-          <h3>Automatización</h3>
-          <ul class="features">
-            <li>✔ Bots y flujos de WhatsApp</li>
-            <li>✔ Integración con Google Sheets</li>
-            <li>✔ Soporte dedicado</li>
-          </ul>
-          <a href="#contacto" class="btn btn-cta">Escalar mi negocio</a>
-        </div>
-        <div class="plan reveal">
-          <h3>Software Empresarial</h3>
-          <ul class="features">
-            <li>✔ Panel administrativo</li>
-            <li>✔ Integración con APIs</li>
-            <li>✔ Reportes y métricas</li>
-          </ul>
-          <a href="#contacto" class="btn btn-cta">Digitalizar negocio</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contacto" class="container">
-      <div class="card reveal contact-box">
-        <h2 class="section-title">Cuéntanos tu idea</h2>
-        <p class="section-sub">Te damos una propuesta en menos de 24 horas.</p>
-        <form id="wa-form" class="grid-form">
-          <input type="text" id="name" placeholder="Nombre completo" required />
-          <input
-            type="email"
-            id="email"
-            placeholder="Correo electrónico"
-            required
-          />
-          <input type="text" id="phone" placeholder="WhatsApp (opcional)" />
-          <input
-            type="text"
-            id="service"
-            placeholder="Servicio de interés"
-            required
-          />
-          <textarea
-            id="message"
-            placeholder="Cuéntanos sobre tu negocio o idea"
-            rows="4"
-          ></textarea>
-          <button class="btn btn-cta" type="submit">Enviar por WhatsApp</button>
-        </form>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq" class="container">
-      <h2 class="section-title reveal">Preguntas frecuentes</h2>
-      <p class="section-sub reveal">Resolvemos las dudas más comunes.</p>
-      <details class="reveal">
-        <summary>¿En cuánto tiempo entregan mi web?</summary>
-        <p>
-          Una landing básica puede estar lista en 5 días hábiles. Proyectos más
-          complejos se pactan según alcance.
-        </p>
-      </details>
-      <details class="reveal">
-        <summary>¿Incluye dominio y hosting?</summary>
-        <p>
-          Sí, en el plan profesional y empresarial. En el básico podemos
-          asesorarte para adquirirlos de forma segura.
-        </p>
-      </details>
-      <details class="reveal">
-        <summary>¿Puedo pagar por cuotas?</summary>
-        <p>
-          Claro, ofrecemos facilidades de pago (generalmente 50% al iniciar y
-          50% a la entrega) para que arranques sin freno.
-        </p>
-      </details>
-    </section>
-
-    <footer>
-      <div class="container">
-        <p>© <span id="year"></span> Duoclick. Soluciones a un click.</p>
-        <div class="footer-links">
-          <a
-            href="https://www.instagram.com/duoclick.tech"
-            target="_blank"
-            rel="noopener"
-            >Instagram</a
-          >
-          |
-          <a
-            href="https://www.facebook.com/share/1JT6g8nLGf/"
-            target="_blank"
-            rel="noopener"
-            >Facebook</a
-          >
-        </div>
+      <div class="footer-bottom container">
+        <p>© <span id="year"></span> Duoclick. Todos los derechos reservados.</p>
       </div>
     </footer>
 
-    <!-- Social FABs -->
-    <div class="social-fabs" aria-label="Redes sociales">
-      <a
-        class="fab fab-ig"
-        href="https://www.instagram.com/duoclick.tech"
-        target="_blank"
-        rel="noopener"
-        aria-label="Instagram"
-      >
-        <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true">
-          <path
-            d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8a3 3 0 1 1 0-6 3 3 0 0 1 0 6Zm5.5-8.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0Z"
-          />
-          <path
-            d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3Z"
-          />
-        </svg>
-      </a>
+    <!-- WIDGET FLOTANTE WHATSAPP CON BURBUJA DE CHAT -->
+    <div class="whatsapp-widget-container" id="wa-widget">
+      <div class="wa-chat-popup" id="wa-popup">
+        <div class="popup-header">
+          <div class="popup-agent">
+            <div class="agent-avatar-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div>
+              <strong>Asesor Duoclick</strong>
+              <small>En línea ahora</small>
+            </div>
+          </div>
+          <button class="popup-close-btn" id="wa-close-popup" aria-label="Cerrar">✕</button>
+        </div>
+        <div class="popup-body">
+          <p>👋 ¡Hola! ¿Tienes una idea o proyecto en mente? Escríbenos y te damos cotización en minutos.</p>
+        </div>
+        <a id="wa-popup-btn" class="popup-action-btn" target="_blank" rel="noopener">
+          Iniciar Chat
+        </a>
+      </div>
 
-      <a
-        class="fab fab-fb"
-        href="https://www.facebook.com/share/1JT6g8nLGf/"
-        target="_blank"
-        rel="noopener"
-        aria-label="Facebook"
-      >
-        <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true">
-          <path
-            d="M22 12a10 10 0 1 0-11.6 9.9v-7h-2.5v-2.9h2.5V9.5c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.3c-1.3 0-1.7.8-1.7 1.6v1.9h2.9l-.5 2.9h-2.4v7A10 10 0 0 0 22 12Z"
-          />
+      <button class="wa-fab-main" id="wa-fab-trigger" aria-label="Abrir WhatsApp">
+        <span class="wa-fab-pulse"></span>
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+          <path d="M16.2 13.6c-.2-.1-1.3-.7-1.5-.8-.2-.1-.3-.1-.5.1-.1.2-.6.8-.7.9-.1.1-.3.1-.5 0-.2-.1-.9-.3-1.7-1.1-.6-.6-1.1-1.3-1.2-1.5-.1-.2 0-.3.1-.4.1-.1.2-.3.3-.4.1-.1.1-.2.2-.3.1-.1.1-.2.2-.3.1-.1.1-.2 0-.4 0-.1-.5-1.2-.7-1.6-.2-.4-.4-.3-.5-.3h-.4c-.1 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 3.9 3.4.5.2.9.3 1.2.4.5.1 1 .1 1.3.1.4 0 1.3-.3 1.5-.7.2-.4.2-.9.2-1 0-.1-.1-.1-.3-.2zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.4 5l-1 3.7 3.8-1C7.5 20.5 9.7 21 12 21c5.5 0 10-4.5 10-9.9C22 6.5 17.5 2 12 2zm0 17.5c-2.1 0-4-.6-5.6-1.7l-.4-.2-2.3.6.6-2.2-.2-.4C3 14 2.5 13 2.5 12 2.5 7.9 6 4.5 10 4.5S17.5 7.9 17.5 12 14 19.5 12 19.5z"/>
         </svg>
-      </a>
-
-      <a
-        class="fab fab-wa"
-        id="wa-fab-btn"
-        target="_blank"
-        rel="noopener"
-        aria-label="WhatsApp"
-      >
-        <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true">
-          <path
-            d="M16.2 13.6c-.2-.1-1.3-.7-1.5-.8-.2-.1-.3-.1-.5.1-.1.2-.6.8-.7.9-.1.1-.3.1-.5 0-.2-.1-.9-.3-1.7-1.1-.6-.6-1.1-1.3-1.2-1.5-.1-.2 0-.3.1-.4.1-.1.2-.3.3-.4.1-.1.1-.2.2-.3.1-.1.1-.2.2-.3.1-.1.1-.2 0-.4 0-.1-.5-1.2-.7-1.6-.2-.4-.4-.3-.5-.3h-.4c-.1 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 3.9 3.4.5.2.9.3 1.2.4.5.1 1 .1 1.3.1.4 0 1.3-.3 1.5-.7.2-.4.2-.9.2-1 0-.1-.1-.1-.3-.2zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.4 5l-1 3.7 3.8-1C7.5 20.5 9.7 21 12 21c5.5 0 10-4.5 10-9.9C22 6.5 17.5 2 12 2zm0 17.5c-2.1 0-4-.6-5.6-1.7l-.4-.2-2.3.6.6-2.2-.2-.4C3 14 2.5 13 2.5 12 2.5 7.9 6 4.5 10 4.5S17.5 7.9 17.5 12 14 19.5 12 19.5z"
-          />
-        </svg>
-      </a>
+      </button>
     </div>
 
     <script src="script.js"></script>
