@@ -33,13 +33,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // 7. Menú Móvil
   initMobileMenu();
 
-  // 8. Widget Flotante de WhatsApp y Popup
-  initWhatsAppWidget();
-
-  // 9. Formulario de Contacto Directo
+  // 8. Formulario de Contacto Directo
   initContactForm();
 
-  // 10. Scroll Reveal Animations
+  // 9. Scroll Reveal Animations
   initScrollReveal();
 });
 
@@ -269,44 +266,7 @@ function initMobileMenu() {
 }
 
 /* ==========================================================================
-   8. WIDGET FLOTANTE DE WHATSAPP Y POPUP
-   ========================================================================== */
-function initWhatsAppWidget() {
-  const triggerBtn = document.getElementById("wa-fab-trigger");
-  const popup = document.getElementById("wa-popup");
-  const closeBtn = document.getElementById("wa-close-popup");
-  const popupActionBtn = document.getElementById("wa-popup-btn");
-
-  if (!triggerBtn || !popup) return;
-
-  // Asignar link con mensaje predeterminado
-  if (popupActionBtn) {
-    popupActionBtn.href = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(CONFIG.defaultMsg)}`;
-  }
-
-  // Toggle popup al hacer click en el botón flotante
-  triggerBtn.addEventListener("click", () => {
-    popup.classList.toggle("show");
-  });
-
-  // Cerrar popup
-  if (closeBtn) {
-    closeBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      popup.classList.remove("show");
-    });
-  }
-
-  // Auto-mostrar la burbuja de chat tras 4 segundos para captar la atención
-  setTimeout(() => {
-    if (!popup.classList.contains("show")) {
-      popup.classList.add("show");
-    }
-  }, 4000);
-}
-
-/* ==========================================================================
-   9. FORMULARIO DE CONTACTO
+   8. FORMULARIO DE CONTACTO
    ========================================================================== */
 function initContactForm() {
   const contactForm = document.getElementById("wa-form");
