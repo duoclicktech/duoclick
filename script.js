@@ -116,7 +116,7 @@ function initContactForm() {
     const phone = document.getElementById("phone").value.trim();
     const service = document.getElementById("service").value;
 
-    const message = `Hola Duoclick! 👋%0A%0A*🚀 Solicitud de Propuesta de Solución Digital:*%0A👤 *Nombre / Empresa:* ${encodeURIComponent(name)}%0A📱 *WhatsApp:* ${encodeURIComponent(phone)}%0A🎯 *Solución de interés:* ${encodeURIComponent(service)}%0A%0A_Quiero conocer cómo transformar y escalar mi negocio con Duoclick._`;
+    const message = `Hola Duoclick! 👋%0A%0A*🚀 Solicitud de Cotización con Especialista:*%0A👤 *Nombre / Empresa:* ${encodeURIComponent(name)}%0A📱 *WhatsApp:* ${encodeURIComponent(phone)}%0A🎯 *Solución de interés:* ${encodeURIComponent(service)}%0A%0A_Deseo hablar con un especialista para cotizar mi proyecto y definir la mejor solución para mi empresa._`;
 
     window.open(`https://wa.me/${CONFIG.whatsappNumber}?text=${message}`, "_blank");
   });
