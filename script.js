@@ -100,6 +100,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 7. Efecto 3D Tilt en Desktop Mockup
   initHeroTilt();
+
+  // 8. Carrusel Móvil de Proyectos / Casos de Éxito
+  initProjectsCarousel();
 });
 
 // Asegurar que cualquier clic dinámico en un enlace de WhatsApp use el número activo
@@ -278,4 +281,251 @@ function initHeroTilt() {
   container.addEventListener("mouseleave", () => {
     tiltCard.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
   });
+}
+
+/* ==========================================================================
+   CARRUSEL MÓVIL DE PROYECTOS / CASOS DE ÉXITO (INFINITO & TÁCTIL)
+   ========================================================================== */
+function initProjectsCarousel() {
+  const grid = document.querySelector(".projects-grid");
+  const dots = document.querySelectorAll(".projects-carousel-dots .carousel-dot");
+  const prevBtn = document.getElementById("proj-prev-btn");
+  const nextBtn = document.getElementById("proj-next-btn");
+  const projectsSection = document.getElementById("proyectos");
+
+  if (!grid || !dots.length) return;
+
+  const originalCards = Array.from(grid.querySelectorAll(".project-card:not(.is-clone)"));
+  if (originalCards.length !== 3) return;
+
+  // 1. Crear clones para scroll infinito continuo (3 clones antes y 3 clones después)
+  if (!grid.querySelector(".is-clone")) {
+    const beforeClones = originalCards.map(c => {
+      const clone = c.cloneNode(true);
+      clone.classList.add("is-clone");
+      return clone;
+    });
+    const afterClones = originalCards.map(c => {
+      const clone = c.cloneNode(true);
+      clone.classList.add("is-clone");
+      return clone;
+    });
+
+    // Insertar en orden [0, 1, 2] antes del primer elemento
+    beforeClones.reverse().forEach(clone => grid.insertBefore(clone, grid.firstChild));
+    afterClones.forEach(clone => grid.appendChild(clone));
+  }
+
+  const allCards = Array.from(grid.querySelectorAll(".project-card"));
+  const SET_SIZE = 3; // 3 proyectos reales
+  let activeLogicalIndex = 0; // 0, 1, o 2
+  let currentCardIndex = SET_SIZE; // Empezar en el conjunto central (índice 3: Browlash real)
+  let autoplayTimer = null;
+  let resumeTimer = null;
+  let isInteracting = false;
+  let isNormalizing = false;
+  const AUTOPLAY_INTERVAL = 3800; // 3.8 segundos por tarjeta
+
+  function getCardStep() {
+    if (allCards.length < 2) return 0;
+    const r0 = allCards[0].getBoundingClientRect();
+    const r1 = allCards[1].getBoundingClientRect();
+    return Math.abs(r1.left - r0.left);
+  }
+
+  function scrollToCardIndex(index, smooth = true) {
+    if (index < 0) index = 0;
+    if (index >= allCards.length) index = allCards.length - 1;
+    currentCardIndex = index;
+
+    const targetCard = allCards[currentCardIndex];
+    if (targetCard) {
+      const gridRect = grid.getBoundingClientRect();
+      const cardRect = targetCard.getBoundingClientRect();
+      const currentScroll = grid.scrollLeft;
+      const offset = cardRect.left - gridRect.left;
+      const targetScroll = currentScroll + offset - (grid.clientWidth - cardRect.width) / 2;
+
+      grid.scrollTo({
+        left: targetScroll,
+        behavior: smooth ? "smooth" : "instant"
+      });
+    }
+
+    activeLogicalIndex = ((currentCardIndex % SET_SIZE) + SET_SIZE) % SET_SIZE;
+    updateDots(activeLogicalIndex);
+  }
+
+  function updateDots(logicalIdx) {
+    dots.forEach((dot, idx) => {
+      const isActive = idx === logicalIdx;
+      dot.classList.toggle("active", isActive);
+      dot.setAttribute("aria-selected", isActive ? "true" : "false");
+    });
+  }
+
+  // Inicializar posición en el conjunto central al cargar en móvil
+  function initMobilePosition() {
+    if (window.innerWidth <= 768) {
+      currentCardIndex = SET_SIZE;
+      scrollToCardIndex(SET_SIZE, false);
+    }
+  }
+
+  // Normalización invisible al deslizar con el dedo a los extremos
+  function normalizePosition() {
+    if (isNormalizing || window.innerWidth > 768) return;
+    const step = getCardStep();
+    if (!step) return;
+
+    // Si llegó a los clones anteriores (índices 0, 1, 2), saltar silenciosamente al centro
+    if (currentCardIndex < SET_SIZE) {
+      isNormalizing = true;
+      currentCardIndex += SET_SIZE;
+      grid.scrollTo({
+        left: grid.scrollLeft + (SET_SIZE * step),
+        behavior: "instant"
+      });
+      setTimeout(() => { isNormalizing = false; }, 50);
+    }
+    // Si llegó a los clones posteriores (índices 6, 7, 8), saltar silenciosamente al centro
+    else if (currentCardIndex >= SET_SIZE * 2) {
+      isNormalizing = true;
+      currentCardIndex -= SET_SIZE;
+      grid.scrollTo({
+        left: grid.scrollLeft - (SET_SIZE * step),
+        behavior: "instant"
+      });
+      setTimeout(() => { isNormalizing = false; }, 50);
+    }
+  }
+
+  // Autoplay continuo hacia la izquierda (siempre avanza)
+  function startAutoplay() {
+    stopAutoplay();
+    if (window.innerWidth > 768 || isInteracting) return;
+    autoplayTimer = setInterval(() => {
+      scrollToCardIndex(currentCardIndex + 1, true);
+    }, AUTOPLAY_INTERVAL);
+  }
+
+  function stopAutoplay() {
+    if (autoplayTimer) {
+      clearInterval(autoplayTimer);
+      autoplayTimer = null;
+    }
+  }
+
+  function pauseAndResumeAutoplay() {
+    stopAutoplay();
+    clearTimeout(resumeTimer);
+    resumeTimer = setTimeout(() => {
+      isInteracting = false;
+      startAutoplay();
+    }, 5000);
+  }
+
+  // Clic en los puntos indicadores (dots)
+  dots.forEach((dot) => {
+    dot.addEventListener("click", () => {
+      isInteracting = true;
+      pauseAndResumeAutoplay();
+      const targetLogical = parseInt(dot.getAttribute("data-index"), 10);
+      scrollToCardIndex(SET_SIZE + targetLogical, true);
+    });
+  });
+
+  // Botones Anterior / Siguiente
+  if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
+      isInteracting = true;
+      pauseAndResumeAutoplay();
+      scrollToCardIndex(currentCardIndex - 1, true);
+    });
+  }
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      isInteracting = true;
+      pauseAndResumeAutoplay();
+      scrollToCardIndex(currentCardIndex + 1, true);
+    });
+  }
+
+  // Interacción táctil con el dedo (swipe)
+  grid.addEventListener("touchstart", () => {
+    isInteracting = true;
+    stopAutoplay();
+  }, { passive: true });
+
+  grid.addEventListener("touchend", () => {
+    pauseAndResumeAutoplay();
+  }, { passive: true });
+
+  grid.addEventListener("mouseenter", () => {
+    stopAutoplay();
+  });
+
+  grid.addEventListener("mouseleave", () => {
+    if (!isInteracting) startAutoplay();
+  });
+
+  // Sincronización al deslizar con el dedo (touch swipe / scroll)
+  let scrollTimeout;
+  grid.addEventListener("scroll", () => {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      if (isNormalizing) return;
+      const gridRect = grid.getBoundingClientRect();
+      const gridCenter = gridRect.left + gridRect.width / 2;
+
+      let closestIdx = 0;
+      let minDiff = Infinity;
+
+      allCards.forEach((card, idx) => {
+        const cardRect = card.getBoundingClientRect();
+        const cardCenter = cardRect.left + cardRect.width / 2;
+        const diff = Math.abs(gridCenter - cardCenter);
+        if (diff < minDiff) {
+          minDiff = diff;
+          closestIdx = idx;
+        }
+      });
+
+      currentCardIndex = closestIdx;
+      activeLogicalIndex = ((closestIdx % SET_SIZE) + SET_SIZE) % SET_SIZE;
+      updateDots(activeLogicalIndex);
+
+      // Normalizar para que el scroll sea infinito y nunca termine
+      normalizePosition();
+    }, 60);
+  }, { passive: true });
+
+  // Iniciar en la posición correcta al cargar
+  setTimeout(initMobilePosition, 100);
+
+  // Iniciar autoplay solo cuando la sección de proyectos esté visible
+  if ("IntersectionObserver" in window && projectsSection) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          startAutoplay();
+        } else {
+          stopAutoplay();
+        }
+      });
+    }, { threshold: 0.2 });
+    observer.observe(projectsSection);
+  } else {
+    startAutoplay();
+  }
+
+  // Manejar cambio de tamaño de pantalla
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 768) {
+      stopAutoplay();
+    } else {
+      initMobilePosition();
+      startAutoplay();
+    }
+  }, { passive: true });
 }

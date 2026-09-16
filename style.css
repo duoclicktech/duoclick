@@ -882,6 +882,11 @@ button, input, select {
               0 0 32px -6px rgba(244, 63, 94, 0.22);
 }
 
+/* Ocultar clones en pantallas de escritorio para preservar la cuadrícula de 3 columnas */
+.project-card.is-clone {
+  display: none !important;
+}
+
 /* Browser Header Mockup */
 .project-browser {
   background: rgba(13, 16, 26, 0.95);
@@ -1067,7 +1072,7 @@ button, input, select {
   font-size: 0.88rem;
   color: var(--text-muted);
   line-height: 1.55;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.6rem;
   flex-grow: 1;
 }
 
@@ -1190,6 +1195,11 @@ button, input, select {
   white-space: nowrap;
 }
 
+/* Carousel Controls (Hidden by default on desktop) */
+.projects-carousel-controls {
+  display: none;
+}
+
 /* Responsive adjustments */
 @media (max-width: 1080px) {
   .projects-grid {
@@ -1200,11 +1210,141 @@ button, input, select {
 @media (max-width: 768px) {
   .projects-section {
     padding: 3.5rem 0 1.5rem;
+    overflow: hidden;
   }
 
+  /* Transform vertically stacked cards into a smooth horizontal touch carousel */
   .projects-grid {
-    grid-template-columns: 1fr;
-    gap: 1.8rem;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    gap: 1.2rem;
+    padding: 0.5rem 1.25rem 1.4rem;
+    margin-inline: -1.25rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .projects-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .projects-grid .project-card {
+    flex: 0 0 calc(100vw - 3.6rem);
+    max-width: 390px;
+    min-width: 280px;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    opacity: 1 !important;
+    transform: none !important;
+    margin-bottom: 0;
+  }
+
+  .projects-grid .project-card.reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .projects-grid .project-card.is-clone {
+    display: flex !important;
+  }
+
+  .projects-grid .project-content {
+    padding: 1.35rem 1.2rem;
+  }
+
+  .projects-grid .project-desc {
+    margin-bottom: 1.35rem;
+    font-size: 0.85rem;
+  }
+
+  .projects-carousel-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0.2rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .projects-carousel-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.76rem;
+    font-weight: 500;
+    color: var(--text-dim);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    padding: 0.28rem 0.85rem;
+    border-radius: var(--radius-full);
+    margin-bottom: 0.9rem;
+  }
+
+  .projects-carousel-hint svg {
+    color: var(--accent);
+    animation: swipeHintAnim 2s infinite ease-in-out;
+  }
+
+  @keyframes swipeHintAnim {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(4px); }
+  }
+
+  .projects-carousel-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .carousel-nav-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .carousel-nav-btn:hover,
+  .carousel-nav-btn:active {
+    background: rgba(244, 63, 94, 0.15);
+    border-color: rgba(244, 63, 94, 0.4);
+    color: #ffffff;
+    transform: scale(1.08);
+  }
+
+  .projects-carousel-dots {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.22);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .carousel-dot.active {
+    width: 26px;
+    background: var(--accent);
+    box-shadow: 0 0 12px rgba(244, 63, 94, 0.6);
   }
 
   .portfolio-cta-banner {
