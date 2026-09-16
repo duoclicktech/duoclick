@@ -1,13 +1,82 @@
-/**
- * DUOCLICK — HIGH CONVERSION ENGINE
- * Ultra-lean, fast-loading scripts for paid ads & organic traffic
- */
-
+/* ==========================================================================
+   CONFIGURACIÓN GLOBAL DE DUOCLICK
+   ========================================================================== */
 const CONFIG = {
-  whatsappNumber: "573122882557",
+  // 👉 CAMBIA AQUÍ EL NÚMERO DE WHATSAPP (Solo números, con indicativo de país)
+  // Al cambiarlo aquí, se actualizarán automáticamente todos los botones, enlaces y formularios del sitio.
+  whatsappNumber: "573215843543",
 };
 
+/**
+ * Genera la URL completa de WhatsApp con el número global configurado.
+ * @param {string} message - Mensaje o texto a enviar (opcional)
+ * @returns {string} URL completa de https://wa.me/...
+ */
+function getWhatsAppUrl(message = "") {
+  const phone = (CONFIG.whatsappNumber || "").replace(/\D/g, "");
+  if (!message) return `https://wa.me/${phone}`;
+  let encoded = message;
+  try {
+    const decoded = decodeURIComponent(message);
+    encoded = encodeURIComponent(decoded);
+  } catch (e) {
+    encoded = encodeURIComponent(message);
+  }
+  return `https://wa.me/${phone}?text=${encoded}`;
+}
+
+/**
+ * Abre directamente WhatsApp con el número global y mensaje opcional.
+ * @param {string} message - Mensaje o texto a enviar
+ */
+function openWhatsApp(message = "") {
+  const url = getWhatsAppUrl(message);
+  window.open(url, "_blank", "noopener,noreferrer");
+}
+
+/**
+ * Sincroniza y actualiza automáticamente todos los enlaces de WhatsApp
+ * que existan en la página (los que tengan data-wa-text o apunten a wa.me).
+ */
+function updateAllWhatsAppLinks() {
+  document.querySelectorAll('a[href*="wa.me"], a[data-wa-text]').forEach((link) => {
+    const customText = link.getAttribute("data-wa-text");
+    if (customText !== null) {
+      link.href = getWhatsAppUrl(customText);
+    } else if (link.href.includes("wa.me")) {
+      try {
+        const urlObj = new URL(link.href);
+        const currentText = urlObj.searchParams.get("text") || "";
+        link.href = getWhatsAppUrl(currentText);
+      } catch (err) {
+        const match = link.href.match(/[?&]text=([^&]+)/);
+        const currentText = match ? match[1] : "";
+        link.href = getWhatsAppUrl(currentText);
+      }
+    }
+  });
+
+  // Actualizar también el número en los datos estructurados Schema.org si existen
+  const schemaScript = document.querySelector('script[type="application/ld+json"]');
+  if (schemaScript) {
+    try {
+      const data = JSON.parse(schemaScript.textContent);
+      data.telephone = `+${CONFIG.whatsappNumber.replace(/\D/g, "")}`;
+      schemaScript.textContent = JSON.stringify(data, null, 2);
+    } catch (e) { }
+  }
+}
+
+// Exponer funciones globales en window para que se puedan llamar desde cualquier parte
+window.CONFIG = CONFIG;
+window.getWhatsAppUrl = getWhatsAppUrl;
+window.openWhatsApp = openWhatsApp;
+window.updateAllWhatsAppLinks = updateAllWhatsAppLinks;
+
 document.addEventListener("DOMContentLoaded", () => {
+  // 0. Sincronizar todos los enlaces de WhatsApp con el número global
+  updateAllWhatsAppLinks();
+
   // 1. Año en footer
   const yearEl = document.getElementById("year");
   if (yearEl) {
@@ -31,6 +100,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 7. Efecto 3D Tilt en Desktop Mockup
   initHeroTilt();
+});
+
+// Asegurar que cualquier clic dinámico en un enlace de WhatsApp use el número activo
+document.addEventListener("click", (e) => {
+  const link = e.target.closest('a[href*="wa.me"], a[data-wa-text]');
+  if (!link) return;
+  const customText = link.getAttribute("data-wa-text");
+  if (customText !== null) {
+    link.href = getWhatsAppUrl(customText);
+  } else if (link.href.includes("wa.me")) {
+    try {
+      const urlObj = new URL(link.href);
+      const currentText = urlObj.searchParams.get("text") || "";
+      link.href = getWhatsAppUrl(currentText);
+    } catch (err) { }
+  }
 });
 
 /* ==========================================================================
@@ -118,7 +203,7 @@ function initContactForm() {
 
     const message = `Hola Duoclick! 👋%0A%0A*🚀 Solicitud de Cotización con Especialista:*%0A👤 *Nombre / Empresa:* ${encodeURIComponent(name)}%0A📱 *WhatsApp:* ${encodeURIComponent(phone)}%0A🎯 *Solución de interés:* ${encodeURIComponent(service)}%0A%0A_Deseo hablar con un especialista para cotizar mi proyecto y definir la mejor solución para mi empresa._`;
 
-    window.open(`https://wa.me/${CONFIG.whatsappNumber}?text=${message}`, "_blank");
+    openWhatsApp(message);
   });
 }
 
