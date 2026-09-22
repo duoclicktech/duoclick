@@ -529,3 +529,115 @@ function initProjectsCarousel() {
     }
   }, { passive: true });
 }
+
+/* ==========================================================================
+   TSPARTICLES — INTERACTIVE PARTICLE NETWORK BACKGROUND
+   Efecto visual premium: Red de nodos conectados con estética Dark Tech
+   ========================================================================== */
+function initParticlesBackground() {
+  if (typeof tsParticles === "undefined") return;
+
+  tsParticles.load("tsparticles", {
+    fullScreen: false,
+    fpsLimit: 60,
+    particles: {
+      number: {
+        value: 80,
+        density: {
+          enable: true,
+          area: 900,
+        },
+      },
+      color: {
+        value: ["#f43f5e", "#fb7185", "#64748b", "#38bdf8"],
+      },
+      shape: {
+        type: "circle",
+      },
+      opacity: {
+        value: { min: 0.15, max: 0.5 },
+        animation: {
+          enable: true,
+          speed: 0.8,
+          minimumValue: 0.1,
+          sync: false,
+        },
+      },
+      size: {
+        value: { min: 1, max: 3 },
+        animation: {
+          enable: true,
+          speed: 2,
+          minimumValue: 0.5,
+          sync: false,
+        },
+      },
+      links: {
+        enable: true,
+        distance: 150,
+        color: "#f43f5e",
+        opacity: 0.12,
+        width: 1,
+        triangles: {
+          enable: true,
+          opacity: 0.02,
+        },
+      },
+      move: {
+        enable: true,
+        speed: 0.8,
+        direction: "none",
+        random: true,
+        straight: false,
+        outModes: {
+          default: "out",
+        },
+        attract: {
+          enable: true,
+          rotateX: 600,
+          rotateY: 1200,
+        },
+      },
+    },
+    interactivity: {
+      detectsOn: "canvas",
+      events: {
+        onHover: {
+          enable: true,
+          mode: "grab",
+        },
+        onClick: {
+          enable: true,
+          mode: "push",
+        },
+        resize: true,
+      },
+      modes: {
+        grab: {
+          distance: 180,
+          links: {
+            opacity: 0.35,
+            color: "#f43f5e",
+          },
+        },
+        push: {
+          quantity: 3,
+        },
+      },
+    },
+    detectRetina: true,
+    background: {
+      color: "transparent",
+    },
+  });
+}
+
+// Inicializar partículas cuando tsParticles esté listo
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", () => {
+    // Esperar un momento para que tsParticles (defer) se cargue
+    setTimeout(initParticlesBackground, 100);
+  });
+} else {
+  setTimeout(initParticlesBackground, 100);
+}
